@@ -57,7 +57,11 @@ public class InsertServices {
 	public void insertLakas(Lakas lakas) {
 		DAOGet daoGet = new DAOGet();
 		List<Lakas> lakasok = daoGet.getLakasok();
-		if(lakasok.contains(lakas)){
+		List<Integer> idk= new ArrayList<Integer>();
+		for(Lakas tr:lakasok){
+			idk.add(tr.getId());
+		}
+		if(idk.contains(lakas.getId())){
 			DAOUpdate daoUpdate = new DAOUpdate();
 			daoUpdate.updateLakas(lakas);
 		} else {
@@ -69,7 +73,12 @@ public class InsertServices {
 	public void insertTarsashaz(Tarsashaz tarsashaz) {
 		DAOGet daoGet = new DAOGet();
 		List<Tarsashaz> tarsashazak = daoGet.getTarsashazak();
-		if(tarsashazak.contains(tarsashaz)){
+		List<Integer> idk= new ArrayList<Integer>();
+		for(Tarsashaz tr:tarsashazak){
+			idk.add(tr.getId());
+		}
+		
+		if(idk.contains(tarsashaz.getId())){
 			DAOUpdate daoUpdate = new DAOUpdate();
 			daoUpdate.updateTarsashaz(tarsashaz);
 		} else {

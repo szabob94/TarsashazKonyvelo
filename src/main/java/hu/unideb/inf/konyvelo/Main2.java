@@ -65,6 +65,12 @@ public class Main2 {
 		InsertTranzakcioT insertTranzakcioT = new InsertTranzakcioT();
 		layeredPane.add(insertTranzakcioT);
 		layeredPane.setLayer(insertTranzakcioT, 1);
-		ActivateLayer(1, layeredPane);
+		InsertTarsashaz insertTarsashaz = new InsertTarsashaz();
+		layeredPane.add(insertTarsashaz);
+		layeredPane.setLayer(insertTarsashaz, 2);
+		InsertLakas insertLakas = new InsertLakas();
+		layeredPane.add(insertLakas);
+		layeredPane.setLayer(insertLakas, 3);
+		ActivateLayer(3, layeredPane);
 	}
 }

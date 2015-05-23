@@ -36,6 +36,9 @@ public class Tarsashaz {
 		this.tranzakcioTk = tranzakcioTk;
 	}
 
+	public Tarsashaz() {
+	}
+
 	/**
 	 * @return the id
 	 */

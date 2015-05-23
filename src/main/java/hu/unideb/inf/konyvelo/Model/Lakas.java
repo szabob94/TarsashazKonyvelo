@@ -38,6 +38,9 @@ public class Lakas {
 		this.tranzakciok=tranzakciok;
 	}
 
+	public Lakas() {
+	}
+
 	/**
 	 * @return the id
 	 */

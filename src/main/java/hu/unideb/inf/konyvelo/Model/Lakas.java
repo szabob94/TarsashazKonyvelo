@@ -3,6 +3,8 @@
  */
 package hu.unideb.inf.konyvelo.Model;
 
+import java.util.List;
+
 /**
  * @author Bence
  *
@@ -15,6 +17,7 @@ public class Lakas {
 	private int emelet;
 	private int ajto;
 	private int tartozas;
+	private List<TranzakcioL> tranzakciok;
 	
 	/**
 	 * @param id
@@ -25,13 +28,14 @@ public class Lakas {
 	 * @param tartozas
 	 */
 	public Lakas(int id, String tulajdonos, int tarsashazID, int emelet,
-			int ajto, int tartozas) {
+			int ajto, int tartozas, List<TranzakcioL> tranzakciok) {
 		this.id = id;
 		Tulajdonos = tulajdonos;
 		TarsashazID = tarsashazID;
 		this.emelet = emelet;
 		this.ajto = ajto;
 		this.tartozas = tartozas;
+		this.tranzakciok=tranzakciok;
 	}
 
 	/**
@@ -118,12 +122,22 @@ public class Lakas {
 		this.tartozas = tartozas;
 	}
 
+	public List<TranzakcioL> getTranzakciok() {
+		return tranzakciok;
+	}
+
+	public void setTranzakciok(List<TranzakcioL> tranzakciok) {
+		this.tranzakciok = tranzakciok;
+	}
+
 	@Override
 	public String toString() {
 		return "Lakas [id=" + id + ", Tulajdonos=" + Tulajdonos
 				+ ", TarsashazID=" + TarsashazID + ", emelet=" + emelet
-				+ ", ajto=" + ajto + ", tartozas=" + tartozas + "]";
+				+ ", ajto=" + ajto + ", tartozas=" + tartozas
+				+ ", tranzakciok=" + tranzakciok + "]";
 	}
+
 	
 	
 }

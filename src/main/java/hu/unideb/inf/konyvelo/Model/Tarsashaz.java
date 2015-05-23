@@ -3,6 +3,8 @@
  */
 package hu.unideb.inf.konyvelo.Model;
 
+import java.util.List;
+
 /**
  * @author Bence
  *
@@ -12,16 +14,26 @@ public class Tarsashaz {
 	private int id;
 	private String cim;
 	private int tartozas;
+	private List<Lakas> lakasok;
+	private List<TranzakcioT> tranzakcioTk;
+
 	
+
 	/**
 	 * @param id
 	 * @param cim
 	 * @param tartozas
+	 * @param lakasok
+	 * @param tranzakcioTk
 	 */
-	public Tarsashaz(int id, String cim, int tartozas) {
+	public Tarsashaz(int id, String cim, int tartozas, List<Lakas> lakasok,
+			List<TranzakcioT> tranzakcioTk) {
+		super();
 		this.id = id;
 		this.cim = cim;
 		this.tartozas = tartozas;
+		this.lakasok = lakasok;
+		this.tranzakcioTk = tranzakcioTk;
 	}
 
 	/**
@@ -66,11 +78,39 @@ public class Tarsashaz {
 		this.tartozas = tartozas;
 	}
 
+	/**
+	 * @return the lakasok
+	 */
+	public List<Lakas> getLakasok() {
+		return lakasok;
+	}
+
+	/**
+	 * @param lakasok the lakasok to set
+	 */
+	public void setLakasok(List<Lakas> lakasok) {
+		this.lakasok = lakasok;
+	}
+
+	/**
+	 * @return the tranzakcioTk
+	 */
+	public List<TranzakcioT> getTranzakcioTk() {
+		return tranzakcioTk;
+	}
+
+	/**
+	 * @param tranzakcioTk the tranzakcioTk to set
+	 */
+	public void setTranzakcioTk(List<TranzakcioT> tranzakcioTk) {
+		this.tranzakcioTk = tranzakcioTk;
+	}
+
 	@Override
 	public String toString() {
 		return "Tarsashaz [id=" + id + ", cim=" + cim + ", tartozas="
-				+ tartozas + "]";
+				+ tartozas + ", lakasok=" + lakasok + ", tranzakcioTk="
+				+ tranzakcioTk + "]";
 	}
-		
 	
 }

@@ -37,6 +37,9 @@ public class TranzakcioT {
 		this.kiiro = kiiro;
 	}
 
+	public TranzakcioT() {
+	}
+
 	/**
 	 * @return the tranzakcioTID
 	 */

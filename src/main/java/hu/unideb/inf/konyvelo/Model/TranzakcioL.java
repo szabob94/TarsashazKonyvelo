@@ -3,6 +3,9 @@
  */
 package hu.unideb.inf.konyvelo.Model;
 
+import javax.swing.event.TableModelListener;
+import javax.swing.table.TableModel;
+
 import org.joda.time.DateTime;
 
 /**
@@ -35,6 +38,16 @@ public class TranzakcioL {
 		this.leiras = leiras;
 		this.befizeto = befizeto;
 	}
+	
+	
+
+	/**
+	 * 
+	 */
+	public TranzakcioL() {
+	}
+
+
 
 	/**
 	 * @return the tranzakcioLID

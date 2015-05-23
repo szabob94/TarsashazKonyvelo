@@ -59,16 +59,16 @@ public class Main2 {
 		JLayeredPane layeredPane = new JLayeredPane();
 		frame.getContentPane().add(layeredPane, BorderLayout.CENTER);
 
-		InsertTranzakcioL insertTranzakcioL = new InsertTranzakcioL();
+		ModositTranzakcioL insertTranzakcioL = new ModositTranzakcioL();
 		layeredPane.add(insertTranzakcioL);
 		layeredPane.setLayer(insertTranzakcioL, 0);
-		InsertTranzakcioT insertTranzakcioT = new InsertTranzakcioT();
+		ModositTranzakcioT insertTranzakcioT = new ModositTranzakcioT();
 		layeredPane.add(insertTranzakcioT);
 		layeredPane.setLayer(insertTranzakcioT, 1);
-		InsertTarsashaz insertTarsashaz = new InsertTarsashaz();
+		ModositTarsashaz insertTarsashaz = new ModositTarsashaz();
 		layeredPane.add(insertTarsashaz);
 		layeredPane.setLayer(insertTarsashaz, 2);
-		InsertLakas insertLakas = new InsertLakas();
+		ModositLakas insertLakas = new ModositLakas();
 		layeredPane.add(insertLakas);
 		layeredPane.setLayer(insertLakas, 3);
 		ActivateLayer(3, layeredPane);

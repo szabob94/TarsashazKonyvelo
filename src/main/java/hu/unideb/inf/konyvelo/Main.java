@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.joda.time.DateTime;
 
+import hu.unideb.inf.konyvelo.DAO.DAODelete;
 import hu.unideb.inf.konyvelo.DAO.DAOGet;
 import hu.unideb.inf.konyvelo.DAO.DAOInsert;
 import hu.unideb.inf.konyvelo.DAO.DAOUpdate;
@@ -109,6 +110,11 @@ public class Main {
 		for (TranzakcioT tranzakcioT : tranzakciokT) {
 			System.out.println(tranzakcioT);
 		}
+		
+		DAODelete daoDelete = new DAODelete();
+		TranzakcioL valami=new TranzakcioL();
+		valami.setTranzakcioLID(5);
+		daoDelete.deleteTranzakcioL(valami);
 
 	}
 }

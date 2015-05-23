@@ -1,5 +1,6 @@
 package hu.unideb.inf.konyvelo;
 
+import hu.unideb.inf.konyvelo.Control.DeleteServices;
 import hu.unideb.inf.konyvelo.Control.InsertServices;
 import hu.unideb.inf.konyvelo.Model.Lakas;
 
@@ -11,7 +12,7 @@ import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class InsertLakas extends JPanel {
+public class ModositLakas extends JPanel {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -22,7 +23,7 @@ public class InsertLakas extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public InsertLakas() {
+	public ModositLakas() {
 		setLayout(null);
 		setBounds(0, 0, 584, 411);
 		
@@ -101,6 +102,19 @@ public class InsertLakas extends JPanel {
 		});
 		btnNewButton.setBounds(83, 74, 141, 50);
 		add(btnNewButton);
+		
+		JButton btnTrlsAzAdatbzisbl = new JButton("Törlés az adatbázisból");
+		btnTrlsAzAdatbzisbl.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Lakas lakas = new Lakas();
+				lakas.setId(Integer.parseInt(textField.getText()));
+				DeleteServices ds = new DeleteServices();
+				ds.deleteLakas(lakas);
+			}
+		});
+		btnTrlsAzAdatbzisbl.setBounds(83, 342, 141, 50);
+		add(btnTrlsAzAdatbzisbl);
 		
 	}
 

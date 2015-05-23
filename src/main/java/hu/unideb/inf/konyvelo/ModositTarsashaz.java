@@ -1,7 +1,9 @@
 package hu.unideb.inf.konyvelo;
 
+import hu.unideb.inf.konyvelo.Control.DeleteServices;
 import hu.unideb.inf.konyvelo.Control.InsertServices;
 import hu.unideb.inf.konyvelo.DAO.DAOInsert;
+import hu.unideb.inf.konyvelo.Model.Lakas;
 import hu.unideb.inf.konyvelo.Model.Tarsashaz;
 
 import javax.swing.JPanel;
@@ -12,7 +14,7 @@ import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class InsertTarsashaz extends JPanel {
+public class ModositTarsashaz extends JPanel {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -20,7 +22,7 @@ public class InsertTarsashaz extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public InsertTarsashaz() {
+	public ModositTarsashaz() {
 		setLayout(null);
 		setBounds(0, 0, 584, 411);
 		
@@ -72,6 +74,19 @@ public class InsertTarsashaz extends JPanel {
 		});
 		btnNewButton.setBounds(72, 56, 126, 52);
 		add(btnNewButton);
+		
+		JButton btnTrlsAzAdatbzisbl = new JButton("Törlés az adatbázisból");
+		btnTrlsAzAdatbzisbl.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Tarsashaz tarsashaz = new Tarsashaz();
+				tarsashaz.setId(Integer.parseInt(textField.getText()));
+				DeleteServices ds = new DeleteServices();
+				ds.deleteTarsashaz(tarsashaz);
+			}
+		});
+		btnTrlsAzAdatbzisbl.setBounds(83, 342, 141, 50);
+		add(btnTrlsAzAdatbzisbl);
 
 	}
 

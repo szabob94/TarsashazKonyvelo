@@ -1,30 +1,27 @@
 package hu.unideb.inf.konyvelo;
 
-import hu.unideb.inf.konyvelo.Control.LekeroServices;
-import hu.unideb.inf.konyvelo.Model.Tarsashaz;
+import hu.unideb.inf.konyvelo.Model.Lakas;
+import hu.unideb.inf.konyvelo.Model.TranzakcioL;
 
 import java.awt.Component;
-import java.util.ArrayList;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.List;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JButton;
 import javax.swing.JLayeredPane;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.ListSelectionModel;
 import javax.swing.ScrollPaneConstants;
-import javax.swing.JButton;
 
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
-public class TarsashazLista extends JPanel {
+public class TranzakcioLLista extends JPanel {
 	
 	JScrollPane scrollPane;
-	JList<Tarsashaz> tarsashazLista;
+	JList<TranzakcioL> tranzakcioLista;
 	DefaultListModel listModel;
-	List<Tarsashaz> tarsashazak;
+	List<TranzakcioL> tranzakciok;
 	
 	public static void ActivateLayer(int i, JLayeredPane layeredPane) {
 
@@ -37,11 +34,11 @@ public class TarsashazLista extends JPanel {
 		}
 	}
 	
-	public void setTarsashazList(List<Tarsashaz> lista){
-		tarsashazak=lista;
+	public void setTranzakcioLLista(List<TranzakcioL> lista){
+		tranzakciok=lista;
 		listModel = new DefaultListModel();
-		for(Tarsashaz th : tarsashazak){
-			listModel.addElement(th.toString());
+		for(TranzakcioL tranzakcio : tranzakciok){
+			listModel.addElement(tranzakcio.toString());
 		}
 		JList list = new JList(listModel);
 		list.setBounds(10, 101, 564, 299);
@@ -54,7 +51,8 @@ public class TarsashazLista extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public TarsashazLista(JLayeredPane layeredPane, TranzakcioTLista tranzakcioTLista) {
+	public TranzakcioLLista(JLayeredPane layeredPane) {
+		
 		setLayout(null);
 		setBounds(0, 0, 584, 411);
 		
@@ -69,24 +67,12 @@ public class TarsashazLista extends JPanel {
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ActivateLayer(0, layeredPane);
+				ActivateLayer(9, layeredPane);
 			}
 		});
 		btnNewButton.setBounds(73, 41, 121, 40);
 		add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Tranzakciók");
-		btnNewButton_1.setBounds(327, 41, 121, 40);
-		btnNewButton_1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				LekeroServices ls = new LekeroServices();
-				tranzakcioTLista.setTranzakcioTLista(ls.getTranzakcioTk());;
-				ActivateLayer(11, layeredPane);
-			}
-		});
-		add(btnNewButton_1);
-		
-
 	}
+
 }

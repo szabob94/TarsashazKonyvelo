@@ -83,10 +83,16 @@ public class MainMenu {
 		TranzakcioLVegrehajt vegrehajt = new TranzakcioLVegrehajt(layeredPane);
 		layeredPane.add(vegrehajt);
 		layeredPane.setLayer(vegrehajt, 6);
-		TarsashazLista tarsashazLista = new TarsashazLista(layeredPane);
+		TranzakcioTLista tranzakcioTLista = new TranzakcioTLista(layeredPane);
+		layeredPane.add(tranzakcioTLista);
+		layeredPane.setLayer(tranzakcioTLista, 11);
+		TarsashazLista tarsashazLista = new TarsashazLista(layeredPane, tranzakcioTLista);
 		layeredPane.add(tarsashazLista);
 		layeredPane.setLayer(tarsashazLista, 8);
-		LakasLista lakasLista = new LakasLista(layeredPane);
+		TranzakcioLLista tranzakcioLLista = new TranzakcioLLista(layeredPane);
+		layeredPane.add(tranzakcioLLista);
+		layeredPane.setLayer(tranzakcioLLista, 10);
+		LakasLista lakasLista = new LakasLista(layeredPane,tranzakcioLLista);
 		layeredPane.add(lakasLista);
 		layeredPane.setLayer(lakasLista, 9);
 		

@@ -1,5 +1,6 @@
 package hu.unideb.inf.konyvelo;
 
+import hu.unideb.inf.konyvelo.Control.LekeroServices;
 import hu.unideb.inf.konyvelo.Model.Lakas;
 import hu.unideb.inf.konyvelo.Model.Tarsashaz;
 
@@ -51,7 +52,7 @@ public class LakasLista extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public LakasLista(JLayeredPane layeredPane) {
+	public LakasLista(JLayeredPane layeredPane, TranzakcioLLista tranzakcioLLista) {
 		
 		setLayout(null);
 		setBounds(0, 0, 584, 411);
@@ -75,6 +76,14 @@ public class LakasLista extends JPanel {
 		
 		JButton btnNewButton_1 = new JButton("Tranzakciók");
 		btnNewButton_1.setBounds(327, 41, 121, 40);
+		btnNewButton_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				LekeroServices ls = new LekeroServices();
+				tranzakcioLLista.setTranzakcioLLista(ls.getTranzakcioLek());;
+				ActivateLayer(10, layeredPane);
+			}
+		});
 		add(btnNewButton_1);
 
 	}

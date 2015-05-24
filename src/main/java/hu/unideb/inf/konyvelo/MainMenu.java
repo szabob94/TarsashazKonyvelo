@@ -1,5 +1,7 @@
 package hu.unideb.inf.konyvelo;
 
+import hu.unideb.inf.konyvelo.Control.LekeroServices;
+
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.EventQueue;
@@ -81,7 +83,12 @@ public class MainMenu {
 		TranzakcioLVegrehajt vegrehajt = new TranzakcioLVegrehajt(layeredPane);
 		layeredPane.add(vegrehajt);
 		layeredPane.setLayer(vegrehajt, 6);
-		ActivateLayer(5, layeredPane);
+		TarsashazLista tarsashazLista = new TarsashazLista(layeredPane);
+		layeredPane.add(tarsashazLista);
+		layeredPane.setLayer(tarsashazLista, 8);
+		LakasLista lakasLista = new LakasLista(layeredPane);
+		layeredPane.add(lakasLista);
+		layeredPane.setLayer(lakasLista, 9);
 		
 		JPanel menu = new JPanel();
 		menu.setBounds(0, 0, 584, 411);
@@ -106,6 +113,9 @@ public class MainMenu {
 		JButton btnNewButton_2 = new JButton("Társasházak megtekintése");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				LekeroServices ls = new LekeroServices();
+				tarsashazLista.setTarsashazList(ls.getTarsashazak());
+				ActivateLayer(8, layeredPane);
 			}
 		});
 		btnNewButton_2.setBounds(146, 135, 287, 54);
@@ -114,6 +124,9 @@ public class MainMenu {
 		JButton btnNewButton_3 = new JButton("Lakások megtekintése");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				LekeroServices ls = new LekeroServices();
+				lakasLista.setLakasList(ls.getLakasok());
+				ActivateLayer(9, layeredPane);
 			}
 		});
 		btnNewButton_3.setBounds(146, 221, 287, 54);

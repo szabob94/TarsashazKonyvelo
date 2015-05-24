@@ -95,6 +95,25 @@ public class DAOGet {
 		}
 		return lakasok;
 	}
+	
+	public Lakas getLakasokById(int id) {
+		Lakas lakas = new Lakas();
+		try (Connection connection = ConnectionFactory.getConnection()) {
+			Statement statement = connection.createStatement();
+			ResultSet resoultSet = statement
+					.executeQuery("SELECT * FROM lakas WHERE LAKASID="+id);
+			while (resoultSet.next()) {
+				lakas = new Lakas(resoultSet.getInt(1),
+						resoultSet.getString(2), resoultSet.getInt(3),
+						resoultSet.getInt(4), resoultSet.getInt(5),
+						resoultSet.getInt(6)
+						, getTranzakciokLByLakasId(resoultSet.getInt(1)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return lakas;
+	}
 
 
 	public List<TranzakcioL> getTranzakciokL() {
@@ -132,6 +151,24 @@ public class DAOGet {
 			e.printStackTrace();
 		}
 		return tranzakciok;
+		
+	}
+	
+	public TranzakcioL getTranzakciokLByTranzakcioID(int id){
+		TranzakcioL tranzakcio=new TranzakcioL();
+		try(Connection connection=ConnectionFactory.getConnection()){
+			Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM TRANZAKCIOL WHERE TRANZAKCIOLID="+id);
+			while(resultSet.next()){
+				tranzakcio = new TranzakcioL(resultSet.getInt(1),
+						resultSet.getInt(2), resultSet.getInt(3),
+						new DateTime(resultSet.getDate(4)),
+						resultSet.getString(5), resultSet.getString(6));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return tranzakcio;
 		
 	}
 

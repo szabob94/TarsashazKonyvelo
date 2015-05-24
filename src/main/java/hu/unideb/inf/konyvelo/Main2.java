@@ -84,6 +84,9 @@ public class Main2 {
 		Kioszt kioszt = new Kioszt();
 		layeredPane.add(kioszt);
 		layeredPane.setLayer(kioszt, 4);
-		ActivateLayer(4, layeredPane);
+		TranzakcioLVegrehajt vegrehajt = new TranzakcioLVegrehajt();
+		layeredPane.add(vegrehajt);
+		layeredPane.setLayer(vegrehajt, 5);
+		ActivateLayer(5, layeredPane);
 	}
 }

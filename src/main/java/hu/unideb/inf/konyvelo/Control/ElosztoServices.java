@@ -17,10 +17,10 @@ import hu.unideb.inf.konyvelo.Model.TranzakcioT;
  */
 public class ElosztoServices {
 	
-	public void elosztT(int tranzakcioID, int  tarsashazID){
+	public void elosztT(int tranzakcioID){
 		DAOGet get = new DAOGet();
-		Tarsashaz tarsashaz = get.getTarsashazByID(tarsashazID);
 		TranzakcioT tranzakcio = get.getTranzakciokTByTranzakcioID(tranzakcioID);
+		Tarsashaz tarsashaz = get.getTarsashazByID(tranzakcio.getTarsashazID());
 		DAOUpdate daoUpdate = new DAOUpdate();
 		int egyfore=tranzakcio.getOsszeg()/tarsashaz.getLakasszam();
 		tarsashaz.setTartozas(tarsashaz.getTartozas()+tranzakcio.getOsszeg());
@@ -32,7 +32,10 @@ public class ElosztoServices {
 		
 	}
 	
-	public void elosztL(TranzakcioL tranzakcio, Lakas lakas){
+	public void elosztL(int tranzakcioID){
+		DAOGet get = new DAOGet();
+		TranzakcioL tranzakcio = get.getTranzakciokLByTranzakcioID(tranzakcioID);
+		Lakas lakas = get.getLakasokById(tranzakcio.getLakasID());
 		DAOUpdate daoUpdate = new DAOUpdate();
 		lakas.setTartozas(lakas.getTartozas()-tranzakcio.getOsszeg());
 		daoUpdate.updateLakas(lakas);

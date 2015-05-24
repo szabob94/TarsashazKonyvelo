@@ -2,22 +2,22 @@ package hu.unideb.inf.konyvelo;
 
 import hu.unideb.inf.konyvelo.Control.ElosztoServices;
 
-import javax.swing.JPanel;
-import javax.swing.JButton;
-import javax.swing.JTextField;
-
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
-public class Kioszt extends JPanel {
+public class TranzakcioLVegrehajt extends JPanel {
+	
 	private JTextField textField;
 
 	/**
 	 * Create the panel.
 	 */
-	public Kioszt() {
+	public TranzakcioLVegrehajt() {
 		setLayout(null);
 		setBounds(0, 0, 584, 411);
 		
@@ -26,12 +26,12 @@ public class Kioszt extends JPanel {
 		add(textField);
 		textField.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Elosztás");
+		JButton btnNewButton = new JButton("Végrehajt");
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ElosztoServices es = new ElosztoServices();
-				es.elosztT(Integer.parseInt(textField.getText()));
+				es.elosztL(Integer.parseInt(textField.getText()));
 			}
 		});
 		btnNewButton.setBounds(21, 183, 116, 66);
@@ -43,4 +43,5 @@ public class Kioszt extends JPanel {
 		add(lblTranzakcioid);
 
 	}
+
 }

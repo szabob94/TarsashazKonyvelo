@@ -20,6 +20,8 @@ public class ModositTarsashaz extends JPanel {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_4;
 	
 	public static void ActivateLayer(int i, JLayeredPane layeredPane) {
 
@@ -50,34 +52,51 @@ public class ModositTarsashaz extends JPanel {
 		add(btnNewButton_1);
 		
 		JLabel lblId = new JLabel("ID");
-		lblId.setBounds(72, 157, 64, 26);
+		lblId.setBounds(72, 140, 64, 26);
 		add(lblId);
 		
 		textField = new JTextField();
 		lblId.setLabelFor(textField);
-		textField.setBounds(146, 163, 86, 20);
+		textField.setBounds(146, 143, 86, 20);
 		add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Társasház címe");
-		lblNewLabel.setBounds(34, 224, 102, 35);
+		lblNewLabel.setBounds(34, 180, 102, 35);
 		add(lblNewLabel);
 		
 		textField_1 = new JTextField();
 		lblNewLabel.setLabelFor(textField_1);
-		textField_1.setBounds(146, 231, 305, 20);
+		textField_1.setBounds(146, 183, 305, 20);
 		add(textField_1);
 		textField_1.setColumns(10);
 		
 		JLabel lblTartozs = new JLabel("Tartozás");
-		lblTartozs.setBounds(34, 290, 76, 26);
+		lblTartozs.setBounds(34, 225, 76, 26);
 		add(lblTartozs);
 		
 		textField_2 = new JTextField();
-		textField_2.setBounds(146, 293, 191, 20);
+		textField_2.setBounds(146, 228, 191, 20);
 		add(textField_2);
 		textField_2.setColumns(10);
 		
+		JLabel lblEmeletSzam = new JLabel("Emeletek száma");
+		lblEmeletSzam.setBounds(34, 264, 100, 26);
+		add(lblEmeletSzam);
+		
+		textField_3 = new JTextField();
+		textField_3.setBounds(146, 267, 191, 20);
+		add(textField_3);
+		textField_3.setColumns(10);
+		
+		JLabel lblLakasSzam = new JLabel("Lakások száma");
+		lblLakasSzam.setBounds(34, 290, 90, 26);
+		add(lblLakasSzam);
+		
+		textField_4 = new JTextField();
+		textField_4.setBounds(146, 293, 191, 20);
+		add(textField_4);
+		textField_4.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Elküld");
 		btnNewButton.addMouseListener(new MouseAdapter() {
@@ -87,8 +106,8 @@ public class ModositTarsashaz extends JPanel {
 				tarsashaz.setId(Integer.parseInt(textField.getText()));
 				tarsashaz.setCim(textField_1.getText());
 				tarsashaz.setTartozas(Integer.parseInt(textField_2.getText()));
-				tarsashaz.setEmeletszam(4);
-				tarsashaz.setLakasszam(8);
+				tarsashaz.setEmeletszam(Integer.parseInt(textField_3.getText()));
+				tarsashaz.setLakasszam(Integer.parseInt(textField_4.getText()));
 				InsertServices inS = new InsertServices();
 				inS.insertTarsashaz(tarsashaz);
 			}
@@ -106,7 +125,7 @@ public class ModositTarsashaz extends JPanel {
 				ds.deleteTarsashaz(tarsashaz);
 			}
 		});
-		btnTrlsAzAdatbzisbl.setBounds(83, 342, 141, 50);
+		btnTrlsAzAdatbzisbl.setBounds(83, 342, 180, 40);
 		add(btnTrlsAzAdatbzisbl);
 
 	}

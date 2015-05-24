@@ -20,6 +20,7 @@ import javax.swing.ScrollPaneConstants;
 public class LakasLista extends JPanel {
 	
 	JScrollPane scrollPane;
+	JList list;
 	JList<Lakas> lakasLista;
 	DefaultListModel listModel;
 	List<Lakas> lakasok;
@@ -41,7 +42,7 @@ public class LakasLista extends JPanel {
 		for(Lakas lakas : lakasok){
 			listModel.addElement(lakas.toString());
 		}
-		JList list = new JList(listModel);
+		list = new JList(listModel);
 		list.setBounds(10, 101, 564, 299);
 		scrollPane.add(list);
 		scrollPane.setViewportView(list);
@@ -68,6 +69,7 @@ public class LakasLista extends JPanel {
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				scrollPane.remove(list);
 				ActivateLayer(0, layeredPane);
 			}
 		});

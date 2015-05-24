@@ -39,8 +39,11 @@ public class ElosztoServices {
 		DAOGet get = new DAOGet();
 		TranzakcioL tranzakcio = get.getTranzakciokLByTranzakcioID(tranzakcioID);
 		Lakas lakas = get.getLakasokById(tranzakcio.getLakasID());
+		Tarsashaz tarsashaz = get.getTarsashazByID(lakas.getTarsashazID());
 		DAOUpdate daoUpdate = new DAOUpdate();
 		lakas.setTartozas(lakas.getTartozas()-tranzakcio.getOsszeg());
 		daoUpdate.updateLakas(lakas);
+		tarsashaz.setTartozas(tarsashaz.getTartozas()-tranzakcio.getOsszeg());
+		daoUpdate.updateTarsashaz(tarsashaz);
 	}
 }

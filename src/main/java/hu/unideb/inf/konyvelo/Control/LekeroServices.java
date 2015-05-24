@@ -23,10 +23,22 @@ public class LekeroServices {
 		return tarsashazak;
 	}
 	
+	public Tarsashaz getTarsashazByID(int id){
+		DAOGet dao = new DAOGet();
+		Tarsashaz tarsashaz= dao.getTarsashazByID(id);
+		return tarsashaz;
+	}
+	
 	public List<Lakas> getLakasok(){
 		DAOGet dao = new DAOGet();
 		List<Lakas> lakasok= dao.getLakasokEgyszeru();
 		return lakasok;
+	}
+	
+	public Lakas getLakasByID(int id){
+		DAOGet dao = new DAOGet();
+		Lakas lakas= dao.getLakasokById(id);
+		return lakas;
 	}
 	
 	public List<TranzakcioT> getTranzakcioTk(){

@@ -95,6 +95,18 @@ public class MainMenu {
 		LakasLista lakasLista = new LakasLista(layeredPane,tranzakcioLLista);
 		layeredPane.add(lakasLista);
 		layeredPane.setLayer(lakasLista, 9);
+		TarsashazStatisztika tarsashazStatisztika = new TarsashazStatisztika(layeredPane);
+		layeredPane.add(tarsashazStatisztika);
+		layeredPane.setLayer(tarsashazStatisztika, 13);
+		LakasStatisztika lakasStatisztika = new LakasStatisztika(layeredPane);
+		layeredPane.add(lakasStatisztika);
+		layeredPane.setLayer(lakasStatisztika, 14);
+		RezsiTarsashaz rezsiTarsashaz = new RezsiTarsashaz(layeredPane);
+		layeredPane.add(rezsiTarsashaz);
+		layeredPane.setLayer(rezsiTarsashaz, 15);
+		RezsiLakas rezsiLakas = new RezsiLakas(layeredPane);
+		layeredPane.add(rezsiLakas);
+		layeredPane.setLayer(rezsiLakas, 16);
 		
 		JPanel menu = new JPanel();
 		menu.setBounds(0, 0, 584, 411);
@@ -114,6 +126,11 @@ public class MainMenu {
 		
 		JButton btnNewButton_1 = new JButton("Statisztikák");
 		btnNewButton_1.setBounds(146, 305, 287, 54);
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ActivateLayer(12, layeredPane);
+			}
+		});
 		menu.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Társasházak megtekintése");
@@ -212,8 +229,68 @@ public class MainMenu {
 				ActivateLayer(0, layeredPane);
 			}
 		});
+		
+		JPanel statisztika = new JPanel();
+		statisztika.setBounds(0, 0, 584, 411);
+		layeredPane.add(statisztika);
+		layeredPane.setLayer(statisztika, 12);
+		statisztika.setLayout(null);
+		
+		JButton btnTarsashazStatisztika = new JButton("Társasház statisztika");
+		btnTarsashazStatisztika.setBounds(142, 50, 319, 32);
+		btnTarsashazStatisztika.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ActivateLayer(13, layeredPane);
+				tarsashazStatisztika.setStatisztika();
+			}
+		});
+		statisztika.add(btnTarsashazStatisztika);
+		
+		JButton btnLakasStatisztika = new JButton("Lakás statisztika");
+		btnLakasStatisztika.setBounds(142, 120, 319, 32);
+		btnLakasStatisztika.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ActivateLayer(14, layeredPane);
+				lakasStatisztika.setStatisztika();
+			}
+		});
+		statisztika.add(btnLakasStatisztika);
+		
+		JButton btnRezsiTarsashaz = new JButton("Rezsicsökkentés társasházra nézve");
+		btnRezsiTarsashaz.setBounds(142, 190, 319, 32);
+		btnRezsiTarsashaz.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ActivateLayer(15, layeredPane);
+			}
+		});
+		statisztika.add(btnRezsiTarsashaz);
+		
+		JButton btnRezsiLakas = new JButton("Rezsicsökkentés lakásra nézve");
+		btnRezsiLakas.setBounds(142, 260, 319, 32);
+		btnRezsiLakas.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ActivateLayer(16, layeredPane);
+			}
+		});
+		statisztika.add(btnRezsiLakas);
+		
+		JButton btnStatVissza = new JButton("vissza");
+		btnStatVissza.setBounds(142, 330, 319, 32);
+		btnStatVissza.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ActivateLayer(0, layeredPane);
+			}
+		});
+		statisztika.add(btnStatVissza);
+		
 		modosit.add(btnVissza);
 		ActivateLayer(0, layeredPane);
+		frame.setTitle("Társasházkönyvelő");
 
 	}
 }

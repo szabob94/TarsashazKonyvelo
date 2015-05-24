@@ -81,7 +81,7 @@ public class ModositTranzakcioL extends JPanel {
 				tranzakcio.setLakasID(Integer.parseInt(textField_1.getText()));
 				tranzakcio.setOsszeg(Integer.parseInt(textField_2.getText()));
 				String tmp[] = textField_3.getText().split("/");
-				tranzakcio.setDatum(new DateTime(Integer.parseInt(tmp[0]), Integer.parseInt(tmp[0]), Integer.parseInt(tmp[1]), Integer.parseInt(tmp[2]), Integer.parseInt(tmp[3])));
+				tranzakcio.setDatum(new DateTime(Integer.parseInt(tmp[0]), Integer.parseInt(tmp[1]), Integer.parseInt(tmp[2]), Integer.parseInt(tmp[3]), Integer.parseInt(tmp[4])));
 				tranzakcio.setBefizeto(textField_4.getText());
 				tranzakcio.setLeiras(textField_5.getText());;
 				InsertServices inS = new InsertServices();

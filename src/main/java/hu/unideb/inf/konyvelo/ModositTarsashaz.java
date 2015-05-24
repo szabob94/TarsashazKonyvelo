@@ -6,11 +6,13 @@ import hu.unideb.inf.konyvelo.DAO.DAOInsert;
 import hu.unideb.inf.konyvelo.Model.Lakas;
 import hu.unideb.inf.konyvelo.Model.Tarsashaz;
 
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -18,16 +20,33 @@ public class ModositTarsashaz extends JPanel {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
+	
+	public static void ActivateLayer(int i, JLayeredPane layeredPane) {
+
+		for (Component component : layeredPane.getComponents()) {
+			if (component.equals(layeredPane.getComponentsInLayer(i)[0]))
+				component.setVisible(true);
+			else {
+				component.setVisible(false);
+			}
+		}
+	}
 
 	/**
 	 * Create the panel.
 	 */
-	public ModositTarsashaz() {
+	public ModositTarsashaz(JLayeredPane layeredPane) {
 		setLayout(null);
 		setBounds(0, 0, 584, 411);
 		
 		JButton btnNewButton_1 = new JButton("Mégse");
 		btnNewButton_1.setBounds(337, 56, 126, 52);
+		btnNewButton_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ActivateLayer(1, layeredPane);
+			}
+		});
 		add(btnNewButton_1);
 		
 		JLabel lblId = new JLabel("ID");

@@ -69,22 +69,22 @@ public class Main2 {
 		frame.getContentPane().add(layeredPane, BorderLayout.CENTER);
 		
 
-		ModositTranzakcioL insertTranzakcioL = new ModositTranzakcioL();
+		ModositTranzakcioL insertTranzakcioL = new ModositTranzakcioL(layeredPane);
 		layeredPane.add(insertTranzakcioL);
 		layeredPane.setLayer(insertTranzakcioL, 0);
-		ModositTranzakcioT insertTranzakcioT = new ModositTranzakcioT();
+		ModositTranzakcioT insertTranzakcioT = new ModositTranzakcioT(layeredPane);
 		layeredPane.add(insertTranzakcioT);
 		layeredPane.setLayer(insertTranzakcioT, 1);
-		ModositTarsashaz insertTarsashaz = new ModositTarsashaz();
+		ModositTarsashaz insertTarsashaz = new ModositTarsashaz(layeredPane);
 		layeredPane.add(insertTarsashaz);
 		layeredPane.setLayer(insertTarsashaz, 2);
-		ModositLakas insertLakas = new ModositLakas();
+		ModositLakas insertLakas = new ModositLakas(layeredPane);
 		layeredPane.add(insertLakas);
 		layeredPane.setLayer(insertLakas, 3);
-		Kioszt kioszt = new Kioszt();
+		Kioszt kioszt = new Kioszt(layeredPane);
 		layeredPane.add(kioszt);
 		layeredPane.setLayer(kioszt, 4);
-		TranzakcioLVegrehajt vegrehajt = new TranzakcioLVegrehajt();
+		TranzakcioLVegrehajt vegrehajt = new TranzakcioLVegrehajt(layeredPane);
 		layeredPane.add(vegrehajt);
 		layeredPane.setLayer(vegrehajt, 5);
 		ActivateLayer(5, layeredPane);

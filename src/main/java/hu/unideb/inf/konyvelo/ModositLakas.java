@@ -4,11 +4,13 @@ import hu.unideb.inf.konyvelo.Control.DeleteServices;
 import hu.unideb.inf.konyvelo.Control.InsertServices;
 import hu.unideb.inf.konyvelo.Model.Lakas;
 
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -19,16 +21,33 @@ public class ModositLakas extends JPanel {
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
+	
+	public static void ActivateLayer(int i, JLayeredPane layeredPane) {
+
+		for (Component component : layeredPane.getComponents()) {
+			if (component.equals(layeredPane.getComponentsInLayer(i)[0]))
+				component.setVisible(true);
+			else {
+				component.setVisible(false);
+			}
+		}
+	}
 
 	/**
 	 * Create the panel.
 	 */
-	public ModositLakas() {
+	public ModositLakas(JLayeredPane layeredPane) {
 		setLayout(null);
 		setBounds(0, 0, 584, 411);
 		
 		JButton btnMgse = new JButton("Mégse");
 		btnMgse.setBounds(301, 74, 141, 50);
+		btnMgse.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ActivateLayer(1, layeredPane);
+			}
+		});
 		add(btnMgse);
 		
 		JLabel lblId = new JLabel("ID");

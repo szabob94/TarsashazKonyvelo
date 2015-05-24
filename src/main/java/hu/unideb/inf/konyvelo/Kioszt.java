@@ -2,10 +2,12 @@ package hu.unideb.inf.konyvelo;
 
 import hu.unideb.inf.konyvelo.Control.ElosztoServices;
 
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
+import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -13,11 +15,22 @@ import javax.swing.JLabel;
 
 public class Kioszt extends JPanel {
 	private JTextField textField;
+	
+	public static void ActivateLayer(int i, JLayeredPane layeredPane) {
+
+		for (Component component : layeredPane.getComponents()) {
+			if (component.equals(layeredPane.getComponentsInLayer(i)[0]))
+				component.setVisible(true);
+			else {
+				component.setVisible(false);
+			}
+		}
+	}
 
 	/**
 	 * Create the panel.
 	 */
-	public Kioszt() {
+	public Kioszt(JLayeredPane layeredPane) {
 		setLayout(null);
 		setBounds(0, 0, 584, 411);
 		
@@ -41,6 +54,16 @@ public class Kioszt extends JPanel {
 		JLabel lblTranzakcioid = new JLabel("TranzakcioID");
 		lblTranzakcioid.setBounds(164, 186, 108, 14);
 		add(lblTranzakcioid);
+		
+		JButton btnVissza = new JButton("Vissza");
+		btnVissza.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ActivateLayer(1, layeredPane);
+			}
+		});
+		btnVissza.setBounds(164, 307, 116, 42);
+		add(btnVissza);
 
 	}
 }

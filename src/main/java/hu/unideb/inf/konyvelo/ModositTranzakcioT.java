@@ -5,9 +5,11 @@ import hu.unideb.inf.konyvelo.Control.InsertServices;
 import hu.unideb.inf.konyvelo.Model.TranzakcioL;
 import hu.unideb.inf.konyvelo.Model.TranzakcioT;
 
+import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -22,11 +24,22 @@ public class ModositTranzakcioT extends JPanel {
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
+	
+	public static void ActivateLayer(int i, JLayeredPane layeredPane) {
+
+		for (Component component : layeredPane.getComponents()) {
+			if (component.equals(layeredPane.getComponentsInLayer(i)[0]))
+				component.setVisible(true);
+			else {
+				component.setVisible(false);
+			}
+		}
+	}
 
 	/**
 	 * Create the panel.
 	 */
-	public ModositTranzakcioT() {
+	public ModositTranzakcioT(JLayeredPane layeredPane) {
 		setLayout(null);
 		setBounds(0, 0, 584, 411);
 		
@@ -105,6 +118,12 @@ public class ModositTranzakcioT extends JPanel {
 		
 		JButton btnNewButton_1 = new JButton("Mégse");
 		btnNewButton_1.setBounds(305, 51, 129, 46);
+		btnNewButton_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ActivateLayer(1, layeredPane);
+			}
+		});
 		add(btnNewButton_1);
 		
 		JButton btnTrlsAzAdatbzisbl = new JButton("Törlés az adatbázisból");

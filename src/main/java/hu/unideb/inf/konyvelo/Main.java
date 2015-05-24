@@ -46,7 +46,7 @@ public class Main {
 		}
 
 		DAOUpdate daoUpdate = new DAOUpdate();
-		daoUpdate.updateTarsashaz(new Tarsashaz(1, "Nyíregyháza, Mező u. 25",
+		daoUpdate.updateTarsashaz(new Tarsashaz(1, "Nyíregyháza, Mező u. 25", 3,9,
 				180000,null,null));
 		tarsashazak = daoGet.getTarsashazak();
 		System.out.println("Társasházak: ");
@@ -79,7 +79,7 @@ public class Main {
 
 		DAOInsert daoInsert = new DAOInsert();
 		daoInsert.insertTarsashaz(new Tarsashaz(3,
-				"Nyíregyháza, Arany János u. 25", 0,null,null));
+				"Nyíregyháza, Arany János u. 25",5,15, 0,null,null));
 		daoInsert.insertLakas(new Lakas(46, "Szabó Bence", 3, 1, 1, 0,null));
 		daoInsert.insertTranzakcioL(new TranzakcioL(2, 3, 4000, new DateTime(
 				2015, 5, 8, 15, 00), "valami", "Szabó Bence"));

@@ -13,24 +13,28 @@ public class Tarsashaz {
 
 	private int id;
 	private String cim;
+	private int emeletszam;
+	private int lakasszam;
 	private int tartozas;
 	private List<Lakas> lakasok;
 	private List<TranzakcioT> tranzakcioTk;
 
-	
-
 	/**
 	 * @param id
 	 * @param cim
+	 * @param emeletszam
+	 * @param lakasszam
 	 * @param tartozas
 	 * @param lakasok
 	 * @param tranzakcioTk
 	 */
-	public Tarsashaz(int id, String cim, int tartozas, List<Lakas> lakasok,
-			List<TranzakcioT> tranzakcioTk) {
+	public Tarsashaz(int id, String cim, int emeletszam, int lakasszam,
+			int tartozas, List<Lakas> lakasok, List<TranzakcioT> tranzakcioTk) {
 		super();
 		this.id = id;
 		this.cim = cim;
+		this.emeletszam = emeletszam;
+		this.lakasszam = lakasszam;
 		this.tartozas = tartozas;
 		this.lakasok = lakasok;
 		this.tranzakcioTk = tranzakcioTk;
@@ -109,9 +113,26 @@ public class Tarsashaz {
 		this.tranzakcioTk = tranzakcioTk;
 	}
 
+	public int getEmeletszam() {
+		return emeletszam;
+	}
+
+	public void setEmeletszam(int emeletszam) {
+		this.emeletszam = emeletszam;
+	}
+
+	public int getLakasszam() {
+		return lakasszam;
+	}
+
+	public void setLakasszam(int lakasszam) {
+		this.lakasszam = lakasszam;
+	}
+
 	@Override
 	public String toString() {
-		return "Tarsashaz [id=" + id + ", cim=" + cim + ", tartozas="
+		return "Tarsashaz [id=" + id + ", cim=" + cim + ", emeletszam="
+				+ emeletszam + ", lakasszam=" + lakasszam + ", tartozas="
 				+ tartozas + ", lakasok=" + lakasok + ", tranzakcioTk="
 				+ tranzakcioTk + "]";
 	}

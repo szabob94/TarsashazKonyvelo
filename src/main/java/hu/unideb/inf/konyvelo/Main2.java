@@ -1,5 +1,12 @@
 package hu.unideb.inf.konyvelo;
 
+import hu.unideb.inf.konyvelo.Control.ElosztoServices;
+import hu.unideb.inf.konyvelo.DAO.DAOGet;
+import hu.unideb.inf.konyvelo.Model.Lakas;
+import hu.unideb.inf.konyvelo.Model.Tarsashaz;
+import hu.unideb.inf.konyvelo.Model.TranzakcioL;
+import hu.unideb.inf.konyvelo.Model.TranzakcioT;
+
 import java.awt.Component;
 import java.awt.EventQueue;
 
@@ -7,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 
 import java.awt.BorderLayout;
+import java.util.List;
 
 import javax.swing.JPanel;
 
@@ -52,12 +60,14 @@ public class Main2 {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 600, 450);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		JLayeredPane layeredPane = new JLayeredPane();
 		frame.getContentPane().add(layeredPane, BorderLayout.CENTER);
+		
 
 		ModositTranzakcioL insertTranzakcioL = new ModositTranzakcioL();
 		layeredPane.add(insertTranzakcioL);
@@ -71,6 +81,9 @@ public class Main2 {
 		ModositLakas insertLakas = new ModositLakas();
 		layeredPane.add(insertLakas);
 		layeredPane.setLayer(insertLakas, 3);
-		ActivateLayer(3, layeredPane);
+		Kioszt kioszt = new Kioszt();
+		layeredPane.add(kioszt);
+		layeredPane.setLayer(kioszt, 4);
+		ActivateLayer(4, layeredPane);
 	}
 }

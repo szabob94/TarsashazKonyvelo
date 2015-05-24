@@ -68,6 +68,8 @@ public class ModositTarsashaz extends JPanel {
 				tarsashaz.setId(Integer.parseInt(textField.getText()));
 				tarsashaz.setCim(textField_1.getText());
 				tarsashaz.setTartozas(Integer.parseInt(textField_2.getText()));
+				tarsashaz.setEmeletszam(4);
+				tarsashaz.setLakasszam(8);
 				InsertServices inS = new InsertServices();
 				inS.insertTarsashaz(tarsashaz);
 			}

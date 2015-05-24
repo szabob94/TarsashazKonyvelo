@@ -28,16 +28,32 @@ public class DAOGet {
 		try (Connection connection = ConnectionFactory.getConnection()) {
 			Statement statement = connection.createStatement();
 			ResultSet resoultSet = statement
-					.executeQuery("SELECT TARSASHAZID, CIM, TARTOZAS FROM tarsashaz");
+					.executeQuery("SELECT TARSASHAZID, CIM, EMELETSZAM, LAKASSZAM, TARTOZAS FROM tarsashaz");
 			while (resoultSet.next()) {
 				Tarsashaz tarsashaz = new Tarsashaz(resoultSet.getInt(1),
-						resoultSet.getString(2), resoultSet.getInt(3), getLakasokByTarsashazId(resoultSet.getInt(1)), getTranzakciokTByTarsashazId(resoultSet.getInt(1)));
+						resoultSet.getString(2),resoultSet.getInt(3) ,resoultSet.getInt(4),resoultSet.getInt(5), getLakasokByTarsashazId(resoultSet.getInt(1)), getTranzakciokTByTarsashazId(resoultSet.getInt(1)));
 				tarsashazak.add(tarsashaz);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return tarsashazak;
+	}
+	
+	public Tarsashaz getTarsashazByID(int id) {
+		Tarsashaz tarsashaz = new Tarsashaz();
+		try (Connection connection = ConnectionFactory.getConnection()) {
+			Statement statement = connection.createStatement();
+			ResultSet resoultSet = statement
+					.executeQuery("SELECT TARSASHAZID, CIM, EMELETSZAM, LAKASSZAM, TARTOZAS FROM tarsashaz WHERE TARSASHAZID="+id);
+			while (resoultSet.next()) {
+				tarsashaz = new Tarsashaz(resoultSet.getInt(1),
+						resoultSet.getString(2),resoultSet.getInt(3) ,resoultSet.getInt(4),resoultSet.getInt(5), getLakasokByTarsashazId(resoultSet.getInt(1)), getTranzakciokTByTarsashazId(resoultSet.getInt(1)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return tarsashaz;
 	}
 
 	public List<Lakas> getLakasok() {
@@ -155,5 +171,23 @@ public class DAOGet {
 			e.printStackTrace();
 		}
 		return tranzakciok;
+	}
+	
+	public TranzakcioT getTranzakciokTByTranzakcioID(int id) {
+		TranzakcioT tranzakcio = new TranzakcioT();
+		try (Connection connection = ConnectionFactory.getConnection()) {
+			Statement statement = connection.createStatement();
+			ResultSet resoultSet = statement
+					.executeQuery("SELECT * FROM tranzakcioT WHERE TRANZAKCIOTID="+id);
+			while (resoultSet.next()) {
+						tranzakcio = new TranzakcioT(resoultSet.getInt(1),
+						resoultSet.getInt(2), resoultSet.getInt(3),
+						new DateTime(resoultSet.getDate(4)),
+						resoultSet.getString(5), resoultSet.getString(6));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return tranzakcio;
 	}
 }

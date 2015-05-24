@@ -22,10 +22,12 @@ public class DAOInsert {
 	public void insertTarsashaz(Tarsashaz tarsashaz) {
 		try (Connection connection = ConnectionFactory.getConnection()) {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("INSERT INTO TARSASHAZ (TARSASHAZID, CIM, TARTOZAS) VALUES(?,?,?)");
+					.prepareStatement("INSERT INTO TARSASHAZ (TARSASHAZID, CIM,EMELETSZAM,LAKASSZAM, TARTOZAS) VALUES(?,?,?,?,?)");
 			preparedStatement.setInt(1, tarsashaz.getId());
 			preparedStatement.setString(2, tarsashaz.getCim());
-			preparedStatement.setInt(3, tarsashaz.getTartozas());
+			preparedStatement.setInt(3, tarsashaz.getEmeletszam());
+			preparedStatement.setInt(4, tarsashaz.getLakasszam());
+			preparedStatement.setInt(5, tarsashaz.getTartozas());
 			
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {

@@ -22,10 +22,12 @@ public class DAOUpdate {
 	public void updateTarsashaz(Tarsashaz tarsashaz) {
 		try (Connection connection = ConnectionFactory.getConnection()) {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("UPDATE TARSASHAZ SET CIM = ?, TARTOZAS = ? WHERE TARSASHAZID = ?");
+					.prepareStatement("UPDATE TARSASHAZ SET CIM = ?, TARTOZAS = ?, EMELETSZAM = ?, LAKASSZAM = ? WHERE TARSASHAZID = ?");
 			preparedStatement.setString(1, tarsashaz.getCim());
 			preparedStatement.setInt(2, tarsashaz.getTartozas());
-			preparedStatement.setInt(3, tarsashaz.getId());
+			preparedStatement.setInt(3, tarsashaz.getEmeletszam());
+			preparedStatement.setInt(4, tarsashaz.getLakasszam());
+			preparedStatement.setInt(5, tarsashaz.getId());
 
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {

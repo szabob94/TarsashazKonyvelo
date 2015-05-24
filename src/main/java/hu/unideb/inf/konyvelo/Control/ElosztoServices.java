@@ -3,6 +3,8 @@
  */
 package hu.unideb.inf.konyvelo.Control;
 
+import java.util.List;
+
 import hu.unideb.inf.konyvelo.DAO.DAOGet;
 import hu.unideb.inf.konyvelo.DAO.DAOInsert;
 import hu.unideb.inf.konyvelo.DAO.DAOUpdate;
@@ -25,7 +27,8 @@ public class ElosztoServices {
 		int egyfore=tranzakcio.getOsszeg()/tarsashaz.getLakasszam();
 		tarsashaz.setTartozas(tarsashaz.getTartozas()+tranzakcio.getOsszeg());
 		daoUpdate.updateTarsashaz(tarsashaz);
-		for(Lakas lakas:tarsashaz.getLakasok()){
+		List<Lakas> lakasok = get.getLakasokByTarsashazId(tarsashaz.getId());
+		for(Lakas lakas:lakasok){
 			lakas.setTartozas(lakas.getTartozas()+egyfore);
 			daoUpdate.updateLakas(lakas);
 		}

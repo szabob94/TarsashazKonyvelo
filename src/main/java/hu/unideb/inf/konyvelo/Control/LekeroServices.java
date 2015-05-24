@@ -19,13 +19,13 @@ public class LekeroServices {
 
 	public List<Tarsashaz> getTarsashazak(){
 		DAOGet dao = new DAOGet();
-		List<Tarsashaz> tarsashazak= dao.getTarsashazak();
+		List<Tarsashaz> tarsashazak= dao.getTarsashazakEgyszeru();
 		return tarsashazak;
 	}
 	
 	public List<Lakas> getLakasok(){
 		DAOGet dao = new DAOGet();
-		List<Lakas> lakasok= dao.getLakasok();
+		List<Lakas> lakasok= dao.getLakasokEgyszeru();
 		return lakasok;
 	}
 	

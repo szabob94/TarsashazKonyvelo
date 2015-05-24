@@ -56,7 +56,7 @@ public class InsertServices {
 
 	public void insertLakas(Lakas lakas) {
 		DAOGet daoGet = new DAOGet();
-		List<Lakas> lakasok = daoGet.getLakasok();
+		List<Lakas> lakasok = daoGet.getLakasokEgyszeru();
 		List<Integer> idk= new ArrayList<Integer>();
 		for(Lakas tr:lakasok){
 			idk.add(tr.getId());
@@ -72,7 +72,7 @@ public class InsertServices {
 	
 	public void insertTarsashaz(Tarsashaz tarsashaz) {
 		DAOGet daoGet = new DAOGet();
-		List<Tarsashaz> tarsashazak = daoGet.getTarsashazak();
+		List<Tarsashaz> tarsashazak = daoGet.getTarsashazakEgyszeru();
 		List<Integer> idk= new ArrayList<Integer>();
 		for(Tarsashaz tr:tarsashazak){
 			idk.add(tr.getId());

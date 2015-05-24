@@ -40,6 +40,23 @@ public class DAOGet {
 		return tarsashazak;
 	}
 	
+	public List<Tarsashaz> getTarsashazakEgyszeru() {
+		List<Tarsashaz> tarsashazak = new ArrayList<Tarsashaz>();
+		try (Connection connection = ConnectionFactory.getConnection()) {
+			Statement statement = connection.createStatement();
+			ResultSet resoultSet = statement
+					.executeQuery("SELECT TARSASHAZID, CIM, EMELETSZAM, LAKASSZAM, TARTOZAS FROM tarsashaz");
+			while (resoultSet.next()) {
+				Tarsashaz tarsashaz = new Tarsashaz(resoultSet.getInt(1),
+						resoultSet.getString(2),resoultSet.getInt(3) ,resoultSet.getInt(4),resoultSet.getInt(5),new ArrayList<Lakas>() , new ArrayList<TranzakcioT>() );
+				tarsashazak.add(tarsashaz);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return tarsashazak;
+	}
+	
 	public Tarsashaz getTarsashazByID(int id) {
 		Tarsashaz tarsashaz = new Tarsashaz();
 		try (Connection connection = ConnectionFactory.getConnection()) {
@@ -48,7 +65,7 @@ public class DAOGet {
 					.executeQuery("SELECT TARSASHAZID, CIM, EMELETSZAM, LAKASSZAM, TARTOZAS FROM tarsashaz WHERE TARSASHAZID="+id);
 			while (resoultSet.next()) {
 				tarsashaz = new Tarsashaz(resoultSet.getInt(1),
-						resoultSet.getString(2),resoultSet.getInt(3) ,resoultSet.getInt(4),resoultSet.getInt(5), getLakasokByTarsashazId(resoultSet.getInt(1)), getTranzakciokTByTarsashazId(resoultSet.getInt(1)));
+						resoultSet.getString(2),resoultSet.getInt(3) ,resoultSet.getInt(4),resoultSet.getInt(5), new ArrayList<Lakas>(), new ArrayList<TranzakcioT>());
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -76,6 +93,26 @@ public class DAOGet {
 		return lakasok;
 	}
 	
+	public List<Lakas> getLakasokEgyszeru() {
+		List<Lakas> lakasok = new ArrayList<Lakas>();
+		try (Connection connection = ConnectionFactory.getConnection()) {
+			Statement statement = connection.createStatement();
+			ResultSet resoultSet = statement
+					.executeQuery("SELECT * FROM lakas");
+			while (resoultSet.next()) {
+				Lakas lakas = new Lakas(resoultSet.getInt(1),
+						resoultSet.getString(2), resoultSet.getInt(3),
+						resoultSet.getInt(4), resoultSet.getInt(5),
+						resoultSet.getInt(6)
+						, new ArrayList<TranzakcioL>());
+				lakasok.add(lakas);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return lakasok;
+	}
+	
 	public List<Lakas> getLakasokByTarsashazId(int id) {
 		List<Lakas> lakasok = new ArrayList<Lakas>();
 		try (Connection connection = ConnectionFactory.getConnection()) {
@@ -87,7 +124,7 @@ public class DAOGet {
 						resoultSet.getString(2), resoultSet.getInt(3),
 						resoultSet.getInt(4), resoultSet.getInt(5),
 						resoultSet.getInt(6)
-						, getTranzakciokLByLakasId(resoultSet.getInt(1)));
+						, new ArrayList<TranzakcioL>());
 				lakasok.add(lakas);
 			}
 		} catch (SQLException e) {
@@ -107,7 +144,7 @@ public class DAOGet {
 						resoultSet.getString(2), resoultSet.getInt(3),
 						resoultSet.getInt(4), resoultSet.getInt(5),
 						resoultSet.getInt(6)
-						, getTranzakciokLByLakasId(resoultSet.getInt(1)));
+						, new ArrayList<TranzakcioL>());
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

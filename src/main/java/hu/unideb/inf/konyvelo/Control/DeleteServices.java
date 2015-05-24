@@ -20,7 +20,7 @@ public class DeleteServices {
 	
 	public void deleteTarsashaz(Tarsashaz tarsashaz){
 		DAOGet daoGet = new DAOGet();
-		List<Tarsashaz> tarsashazak = daoGet.getTarsashazak();
+		List<Tarsashaz> tarsashazak = daoGet.getTarsashazakEgyszeru();
 		for(Tarsashaz th:tarsashazak)
 			if(th.getId()==tarsashaz.getId()){
 				DAODelete daoDelete = new DAODelete();
@@ -31,7 +31,7 @@ public class DeleteServices {
 	
 	public void deleteLakas(Lakas lakas){
 		DAOGet daoGet = new DAOGet();
-		List<Lakas> lakasok = daoGet.getLakasok();
+		List<Lakas> lakasok = daoGet.getLakasokEgyszeru();
 		for(Lakas lak:lakasok)
 			if(lak.getId()==lakas.getId()){
 				DAODelete daoDelete = new DAODelete();

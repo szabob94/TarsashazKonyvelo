@@ -21,13 +21,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author Bence
- *
+ * Osztály, amely közvetlenül elérést biztosít az adatbázis adataihoz.
  */
 public class DAOGet {
 	
 	private static Logger	logger = LoggerFactory.getLogger(DAOGet.class);
 
+	/**
+	 * Lekéri az összes társasházat, a hozzájuk tartozó társasház tranzakciókat, lakásokat, lakásokhoz tartozó tranzakciókat.
+	 * 
+	 * @return a társasházak listája
+	 */
 	public List<Tarsashaz> getTarsashazak() {
 		List<Tarsashaz> tarsashazak = new ArrayList<Tarsashaz>();
 		try (Connection connection = ConnectionFactory.getConnection()) {
@@ -46,6 +50,11 @@ public class DAOGet {
 		return tarsashazak;
 	}
 	
+	/**
+	 * Lekéri az adatbázisból a társasházakat egyszerűsítve.
+	 * 
+	 * @return a társasházak listája
+	 */
 	public List<Tarsashaz> getTarsashazakEgyszeru() {
 		List<Tarsashaz> tarsashazak = new ArrayList<Tarsashaz>();
 		try (Connection connection = ConnectionFactory.getConnection()) {
@@ -64,6 +73,12 @@ public class DAOGet {
 		return tarsashazak;
 	}
 	
+	/**
+	 * Lekér egy társasházat az adatbázisból azonosító alapján.
+	 * 
+	 * @param id a társasház azonosítója
+	 * @return az azonosító alapján lekért társasház
+	 */
 	public Tarsashaz getTarsashazByID(int id) {
 		Tarsashaz tarsashaz = new Tarsashaz();
 		try (Connection connection = ConnectionFactory.getConnection()) {
@@ -81,6 +96,11 @@ public class DAOGet {
 		return tarsashaz;
 	}
 
+	/**
+	 * Lekéri az adatbázisból a lakásokat és a hozzájuk tartozó lakás tranzakciókat.
+	 * 
+	 * @return a lakások listája
+	 */
 	public List<Lakas> getLakasok() {
 		List<Lakas> lakasok = new ArrayList<Lakas>();
 		try (Connection connection = ConnectionFactory.getConnection()) {
@@ -102,6 +122,11 @@ public class DAOGet {
 		return lakasok;
 	}
 	
+	/**
+	 * Lekéri az adatbázisból a lakások listáját egyszerűsítve.
+	 * 
+	 * @return a lakások listája
+	 */
 	public List<Lakas> getLakasokEgyszeru() {
 		List<Lakas> lakasok = new ArrayList<Lakas>();
 		try (Connection connection = ConnectionFactory.getConnection()) {
@@ -123,6 +148,12 @@ public class DAOGet {
 		return lakasok;
 	}
 	
+	/**
+	 * Lekéri az adatbázisból a lakások listáját, melyek társasház azonosítója megyegyezik a paraméterül kapott azonosítóval.
+	 * 
+	 * @param id a társasház azonosítója
+	 * @return a társasházhoz tartozó lakások listája
+	 */
 	public List<Lakas> getLakasokByTarsashazId(int id) {
 		List<Lakas> lakasok = new ArrayList<Lakas>();
 		try (Connection connection = ConnectionFactory.getConnection()) {
@@ -144,6 +175,12 @@ public class DAOGet {
 		return lakasok;
 	}
 	
+	/**
+	 * Lekér egy lakást az adatbázisból a paraméterül kapott azonosító alapján.
+	 * 
+	 * @param id a lakás azonosítója
+	 * @return a paraméterül kapott azonosítójú lakás
+	 */
 	public Lakas getLakasokById(int id) {
 		Lakas lakas = new Lakas();
 		try (Connection connection = ConnectionFactory.getConnection()) {
@@ -165,6 +202,11 @@ public class DAOGet {
 	}
 
 
+	/**
+	 * Lekéri az adatbázisból a lakás tranzakciók listáját.
+	 * 
+	 * @return a lakás tranzakciók listája
+	 */
 	public List<TranzakcioL> getTranzakciokL() {
 		List<TranzakcioL> tranzakciok = new ArrayList<TranzakcioL>();
 		try (Connection connection = ConnectionFactory.getConnection()) {
@@ -185,6 +227,12 @@ public class DAOGet {
 		return tranzakciok;
 	}
 	
+	/**
+	 * Lekéri az adatbázisból a lakás tranzakciók listáját, melyek a paraméterül kapott lakáshoz tartoznak.
+	 * 
+	 * @param id a lakás azonosítója
+	 * @return a lakáshoz tartozó tranzakciók listája
+	 */
 	public List<TranzakcioL> getTranzakciokLByLakasId(int id){
 		List<TranzakcioL> tranzakciok=new ArrayList<TranzakcioL>();
 		try(Connection connection=ConnectionFactory.getConnection()){
@@ -205,6 +253,12 @@ public class DAOGet {
 		
 	}
 	
+	/**
+	 * Lekér egy lakás tranzakciót az azonosítója alapján az adatbázisból.
+	 * 
+	 * @param id a lakás tranzakció azonosítója
+	 * @return a paraméterül kapott azonosítóval rendelkező lakás tranzakció
+	 */
 	public TranzakcioL getTranzakciokLByTranzakcioID(int id){
 		TranzakcioL tranzakcio=new TranzakcioL();
 		try(Connection connection=ConnectionFactory.getConnection()){
@@ -224,6 +278,11 @@ public class DAOGet {
 		
 	}
 
+	/**
+	 * Lekéri az adatbázisból a társasház tranzakciók listáját.
+	 * 
+	 * @return a társasház tranzakciók listája
+	 */
 	public List<TranzakcioT> getTranzakciokT() {
 		List<TranzakcioT> tranzakciok = new ArrayList<TranzakcioT>();
 		try (Connection connection = ConnectionFactory.getConnection()) {
@@ -244,6 +303,12 @@ public class DAOGet {
 		return tranzakciok;
 	}
 	
+	/**
+	 * Lekéri az adatbázisból a társasház tranzakciók listáját, melyek a paraméterül kapott társasházhoz tartoznak.
+	 * 
+	 * @param id a társasház azonosítója
+	 * @return a társasházhoz tartozó tranzakciók listája
+	 */
 	public List<TranzakcioT> getTranzakciokTByTarsashazId(int id) {
 		List<TranzakcioT> tranzakciok = new ArrayList<TranzakcioT>();
 		try (Connection connection = ConnectionFactory.getConnection()) {
@@ -264,6 +329,12 @@ public class DAOGet {
 		return tranzakciok;
 	}
 	
+	/**
+	 * Lekér egy társasház tranzakciót az azonosítója alapján az adatbázisból.
+	 * 
+	 * @param id a társasház tranzakció azonosítója
+	 * @return a paraméterül kapott azonosítóval rendelkező társasház tranzakció
+	 */
 	public TranzakcioT getTranzakciokTByTranzakcioID(int id) {
 		TranzakcioT tranzakcio = new TranzakcioT();
 		try (Connection connection = ConnectionFactory.getConnection()) {

@@ -11,20 +11,45 @@ import org.joda.time.DateTime;
  */
 public class TranzakcioT {
 
+	/**
+	 * A társasház tranzakció azonosítója.
+	 */
 	private int tranzakcioTID;
+	
+	/**
+	 * A társasház azonosítója.
+	 */
 	private int tarsashazID;
+	
+	/**
+	 * A társasház tranzakció összege.
+	 */
 	private int osszeg;
+	
+	/**
+	 * A társasház tranzakció dátuma.
+	 */
 	private DateTime datum;
+	
+	/**
+	 * A társasház tranzakció leírása.
+	 */
 	private String leiras;
+	
+	/**
+	 * A társasház tranzakció kiírója.
+	 */
 	private String kiiro;
 	
 	/**
-	 * @param tranzakcioTID
-	 * @param tarsashazID
-	 * @param osszeg
-	 * @param datum
-	 * @param leiras
-	 * @param kiiro
+	 * Bő konstruktor társasház tranzakció létrehozásához.
+	 * 
+	 * @param tranzakcioTID a társasház tranzakció azonosítója
+	 * @param tarsashazID a társasház azonosítója
+	 * @param osszeg a társasház tranzakció összege
+	 * @param datum a társasház tranzakció dátuma
+	 * @param leiras a társasház tranzakció leírása
+	 * @param kiiro a társasház tranzakió kiírója
 	 */
 	public TranzakcioT(int tranzakcioTID, int tarsashazID, int osszeg,
 			DateTime datum, String leiras, String kiiro) {
@@ -37,88 +62,115 @@ public class TranzakcioT {
 		this.kiiro = kiiro;
 	}
 
+	/**
+	 * Üres konstruntok társasház tranzakció létrehozásához.
+	 */
 	public TranzakcioT() {
 	}
 
 	/**
-	 * @return the tranzakcioTID
+	 * A társasház tranzakció azonosítóját adja vissza.
+	 * 
+	 * @return A társasház tranzakció azonosítója
 	 */
 	public int getTranzakcioTID() {
 		return tranzakcioTID;
 	}
 
 	/**
-	 * @param tranzakcioTID the tranzakcioTID to set
+	 * A társasház tranzakció azonosítóját állítja be.
+	 * 
+	 * @param tranzakcioTID a társasház tranzakció azonosítója
 	 */
 	public void setTranzakcioTID(int tranzakcioTID) {
 		this.tranzakcioTID = tranzakcioTID;
 	}
 
 	/**
-	 * @return the tarsashazID
+	 * A társasház azonosítóját adja vissza.
+	 * 
+	 * @return a társasház azonosítója
 	 */
 	public int getTarsashazID() {
 		return tarsashazID;
 	}
 
 	/**
-	 * @param tarsashazID the tarsashazID to set
+	 * A társasház azonosítóját állítja be.
+	 * 
+	 * @param tarsashazID a társasház azonosítója
 	 */
 	public void setTarsashazID(int tarsashazID) {
 		this.tarsashazID = tarsashazID;
 	}
 
 	/**
-	 * @return the osszeg
+	 * A társasház tranzakció összegét adja vissza.
+	 * 
+	 * @return a társasház tranzakció összege
 	 */
 	public int getOsszeg() {
 		return osszeg;
 	}
 
 	/**
-	 * @param osszeg the osszeg to set
+	 * A társasház tranzakció összegét állítja be.
+	 * 
+	 * @param osszeg a társasház tranzakció összege
 	 */
 	public void setOsszeg(int osszeg) {
 		this.osszeg = osszeg;
 	}
 
 	/**
-	 * @return the datum
+	 * A társasház tranzakció dátumát adja vissza.
+	 * 
+	 * @return a társasház tranzakció dátuma
 	 */
 	public DateTime getDatum() {
 		return datum;
 	}
 
 	/**
-	 * @param datum the datum to set
+	 * A társasház tranzakció dátumát állítja be.
+	 * 
+	 * @param datum a társasház tranzakció dátuma
 	 */
 	public void setDatum(DateTime datum) {
 		this.datum = datum;
 	}
 
 	/**
-	 * @return the leiras
+	 * A társasház tranzakció leírását adja vissza.
+	 * 
+	 * @return a társasház tranzakció leírása
 	 */
 	public String getLeiras() {
 		return leiras;
 	}
 
 	/**
-	 * @param leiras the leiras to set
+	 * A társasház tranzakció leírását állítja be.
+	 * 
+	 * @param leiras a társasház tranzakció leírása
 	 */
 	public void setLeiras(String leiras) {
 		this.leiras = leiras;
 	}
 
 	/**
-	 * @return the kiiro
+	 * A társasház tranzakció kiíróját adja vissza.
+	 * 
+	 * @return a társasház tranzakció kiírója
 	 */
 	public String getKiiro() {
 		return kiiro;
 	}
 
 	/**
-	 * @param kiiro the kiiro to set
+	 * A társasház tranzakció kiíróját állítja be.
+	 * 
+	 * @param kiiro a társasház tranzakció kiírója
 	 */
 	public void setKiiro(String kiiro) {
 		this.kiiro = kiiro;

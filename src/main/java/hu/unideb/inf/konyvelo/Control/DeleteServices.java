@@ -17,13 +17,18 @@ import hu.unideb.inf.konyvelo.Model.TranzakcioL;
 import hu.unideb.inf.konyvelo.Model.TranzakcioT;
 
 /**
- * @author Bence
+ * Osztály, mely az adatbázisból való törléseket intézi.
  *
  */
 public class DeleteServices {
 	
 	private static Logger	logger = LoggerFactory.getLogger(DeleteServices.class);
 	
+	/**
+	 * Kitöröl egy társasházat az adatbázisból.
+	 * 
+	 * @param tarsashaz a kitörlendő társasház
+	 */
 	public void deleteTarsashaz(Tarsashaz tarsashaz){
 		DAOGet daoGet = new DAOGet();
 		List<Tarsashaz> tarsashazak = daoGet.getTarsashazakEgyszeru();
@@ -36,6 +41,11 @@ public class DeleteServices {
 		
 	}
 	
+	/**
+	 * Kitöröl egy lakást az adatbázisból.
+	 * 
+	 * @param lakas a kitörlendő lakás
+	 */
 	public void deleteLakas(Lakas lakas){
 		DAOGet daoGet = new DAOGet();
 		List<Lakas> lakasok = daoGet.getLakasokEgyszeru();
@@ -47,6 +57,11 @@ public class DeleteServices {
 		logger.debug("Lakás törlése megtörtént");
 	}
 	
+	/**
+	 * Kitöröl egy lakástranzakciót az adatbázisból.
+	 * 
+	 * @param tranzakcio a kitörlendő lakástranzakció
+	 */
 	public void deleteTranzakcioL(TranzakcioL tranzakcio){
 		DAOGet daoGet = new DAOGet();
 		List<TranzakcioL> tranzakciok = daoGet.getTranzakciokL();
@@ -58,6 +73,11 @@ public class DeleteServices {
 		logger.debug("TranzakcióL törlése megtörtént");
 	}
 	
+	/**
+	 * kitöröl egy társasháztranzakciót az adatbázisból.
+	 * 
+	 * @param tranzakcio a kitörlendő társasháztranzakció
+	 */
 	public void deleteTranzakcioT(TranzakcioT tranzakcio){
 		DAOGet daoGet = new DAOGet();
 		List<TranzakcioT> tranzakciok = daoGet.getTranzakciokT();

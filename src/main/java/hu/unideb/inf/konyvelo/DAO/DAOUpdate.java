@@ -14,11 +14,15 @@ import hu.unideb.inf.konyvelo.Model.TranzakcioL;
 import hu.unideb.inf.konyvelo.Model.TranzakcioT;
 
 /**
- * @author Bence
- *
+ * Osztály, amely adatbázisban lévő rekordok frissítését közvetlenül végzi.
  */
 public class DAOUpdate {
 
+	/**
+	 * Frissíti a paraméterül kapott társasházat a TARSASHAZ táblában.
+	 * 
+	 * @param tarsashaz a frissítendő társasház
+	 */
 	public void updateTarsashaz(Tarsashaz tarsashaz) {
 		try (Connection connection = ConnectionFactory.getConnection()) {
 			PreparedStatement preparedStatement = connection
@@ -35,6 +39,11 @@ public class DAOUpdate {
 		}
 	}
 
+	/**
+	 * Frissíti a paraméterül kapott lakást a LAKAS táblában.
+	 * 
+	 * @param lakas a frissítendő lakás
+	 */
 	public void updateLakas(Lakas lakas) {
 		try (Connection connection = ConnectionFactory.getConnection()) {
 			PreparedStatement preparedStatement = connection
@@ -51,6 +60,11 @@ public class DAOUpdate {
 		}
 	}
 
+	/**
+	 * Frissíti a paraméterül kapott lakás tranzakciót a TRANZAKCIOL táblában.
+	 * 
+	 * @param tranzakcioL a frissítendő lakás tranzakció
+	 */
 	public void updateTranzakcioL(TranzakcioL tranzakcioL) {
 		try (Connection connection = ConnectionFactory.getConnection()) {
 			PreparedStatement preparedStatement = connection
@@ -69,6 +83,11 @@ public class DAOUpdate {
 		}
 	}
 
+	/**
+	 * Frissíte a paraméterül kapott társasház tranzakciót a TRANZAKCIOT táblában.
+	 * 
+	 * @param tranzakcioT a frissítendő társasház tranzakció
+	 */
 	public void updateTranzakcioT(TranzakcioT tranzakcioT) {
 		try (Connection connection = ConnectionFactory.getConnection()) {
 			PreparedStatement preparedStatement = connection

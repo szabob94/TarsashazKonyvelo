@@ -18,13 +18,18 @@ import hu.unideb.inf.konyvelo.Model.TranzakcioL;
 import hu.unideb.inf.konyvelo.Model.TranzakcioT;
 
 /**
- * @author Bence
+ * Osztály, mely közvetlenül csatlakozik az adatbázihoz, és adatokkat szúr be a táblákba.
  *
  */
 public class DAOInsert {
 	
 	private static Logger	logger = LoggerFactory.getLogger(DAOInsert.class);
 
+	/**
+	 * Beszúr a paraméterül kapott társasházat a TARSASHAZ táblába.
+	 * 
+	 * @param tarsashaz a beszúrandó társasház
+	 */
 	public void insertTarsashaz(Tarsashaz tarsashaz) {
 		try (Connection connection = ConnectionFactory.getConnection()) {
 			PreparedStatement preparedStatement = connection
@@ -42,6 +47,11 @@ public class DAOInsert {
 		logger.debug("Társasház feltöltés");
 	}
 
+	/**
+	 * Beszúr a paraméterül kapott lakást a LAKAS táblába.
+	 * 
+	 * @param lakas a beszúrandó lakás
+	 */
 	public void insertLakas(Lakas lakas) {
 		try (Connection connection = ConnectionFactory.getConnection()) {
 			PreparedStatement preparedStatement = connection
@@ -61,6 +71,11 @@ public class DAOInsert {
 		logger.debug("Lakás feltöltés");
 	}
 
+	/**
+	 * Beszúrja a paraméterül kapott lakás tranzakciót a TRANZAKCIOL táblába.
+	 * 
+	 * @param tranzakcioL a beszúrandó lakás tranzakció
+	 */
 	public void insertTranzakcioL(TranzakcioL tranzakcioL) {
 		try (Connection connection = ConnectionFactory.getConnection()) {
 			PreparedStatement preparedStatement = connection
@@ -81,6 +96,11 @@ public class DAOInsert {
 		logger.debug("TranzakcióL feltöltés");
 	}
 
+	/**
+	 * Beszúrja a paraméterül kapott társasház tranzakciót a TRANZAKCIOT táblába.
+	 * 
+	 * @param tranzakcioT a beszúrandó társasház tranzakció
+	 */
 	public void insertTranzakcioT(TranzakcioT tranzakcioT) {
 		try (Connection connection = ConnectionFactory.getConnection()) {
 			PreparedStatement preparedStatement = connection

@@ -19,13 +19,19 @@ import hu.unideb.inf.konyvelo.Model.TranzakcioL;
 import hu.unideb.inf.konyvelo.Model.TranzakcioT;
 
 /**
- * @author Bence
- *
+ * Osztály, mert beszúró műveleteket végez az adatbázisba.
+ * Ha a beszúrandó elem már létezett akkor felülírja.
  */
 public class InsertServices {
 	
 	private static Logger	logger = LoggerFactory.getLogger(InsertServices.class);
 
+	/**
+	 * Beszúr egy lakástranzakciót az adatbázisba.
+	 * Ha létezett már akkor felülírja.
+	 * 
+	 * @param tranzakcio a beszúrandó lakástranzakció
+	 */
 	public void insertTranzakcioL(TranzakcioL tranzakcio) {
 		DAOGet daoGet = new DAOGet();
 		List<TranzakcioL> tranzakciok = daoGet.getTranzakciokL();
@@ -44,6 +50,12 @@ public class InsertServices {
 		logger.debug("Lakás tranzakció feltöltése megtörtént");
 	}
 
+	/**
+	 * Beszúr egy társasháztranzakciót az adatbázisba.
+	 * Ha már létezett akkor felülírja.
+	 * 
+	 * @param tranzakcio a beszúrandó társasháztranzakció
+	 */
 	public void insertTranzakcioT(TranzakcioT tranzakcio) {
 		DAOGet daoGet = new DAOGet();
 		List<TranzakcioT> tranzakciok = daoGet.getTranzakciokT();
@@ -62,6 +74,12 @@ public class InsertServices {
 		logger.debug("Társasház tranzakció feltöltése megtörtént");
 	}
 
+	/**
+	 * Beszúr egy lakást az adatbázisba.
+	 * Ha már létezett akkor felülírja.
+	 * 
+	 * @param lakas a beszúrandó lakás
+	 */
 	public void insertLakas(Lakas lakas) {
 		DAOGet daoGet = new DAOGet();
 		List<Lakas> lakasok = daoGet.getLakasokEgyszeru();
@@ -79,6 +97,13 @@ public class InsertServices {
 		logger.debug("Lakás feltöltése megtörtént");
 	}
 	
+	
+	/**
+	 * Beszúr egy társasházat az adatbázisba.
+	 * Ha már létezett akkor felülírja.
+	 * 
+	 * @param tarsashaz a beszúrandó társasház
+	 */
 	public void insertTarsashaz(Tarsashaz tarsashaz) {
 		DAOGet daoGet = new DAOGet();
 		List<Tarsashaz> tarsashazak = daoGet.getTarsashazakEgyszeru();

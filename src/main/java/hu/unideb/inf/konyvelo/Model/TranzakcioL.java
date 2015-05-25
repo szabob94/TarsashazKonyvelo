@@ -9,25 +9,50 @@ import javax.swing.table.TableModel;
 import org.joda.time.DateTime;
 
 /**
- * @author Bence
- *
+ * Osztály, amely egy lakás tranzakciót reprezentál.
  */
 public class TranzakcioL {
 
+	/**
+	 * A tranzakció azonosítója.
+	 */
 	private int tranzakcioLID;
+	
+	/**
+	 * A tranzakció lakás azonosítója.
+	 */
 	private int lakasID;
+	
+	/**
+	 * A tranzakció összege.
+	 */
 	private int osszeg;
+	
+	/**
+	 * A tranzakció létrejöttének dátuma.
+	 */
 	private DateTime datum;
+	
+	/**
+	 * A tranzakció leírása.
+	 */
 	private String leiras;
+	
+	/**
+	 * A tranzakció kezdeményezője.
+	 */
 	private String befizeto;
 	
 	/**
-	 * @param tranzakcioLID
-	 * @param lakasID
-	 * @param osszeg
-	 * @param datum
-	 * @param leiras
-	 * @param befizeto
+	 * 
+	 * Bő konstruktor lakás tranzakció létrehozásához, minden adattaggal.
+	 * 
+	 * @param tranzakcioLID a tranzakció azonosítója
+	 * @param lakasID a tranzakció lakás azonosítója
+	 * @param osszeg a tranzakció összege
+	 * @param datum a tranzakció létrejöttének dátuma
+	 * @param leiras a tranzakció leírása
+	 * @param befizeto a tranzakció kezdeményezője
 	 */
 	public TranzakcioL(int tranzakcioLID, int lakasID, int osszeg,
 			DateTime datum, String leiras, String befizeto) {
@@ -42,7 +67,7 @@ public class TranzakcioL {
 	
 
 	/**
-	 * 
+	 * Üres konstruktor, amely lakás tranzakciót hoz létre.
 	 */
 	public TranzakcioL() {
 	}
@@ -50,84 +75,108 @@ public class TranzakcioL {
 
 
 	/**
-	 * @return the tranzakcioLID
+	 * A lakás tranzakció azonosítóját adja vissza.
+	 * 
+	 * @return a lakás tranzakció azonosítója
 	 */
 	public int getTranzakcioLID() {
 		return tranzakcioLID;
 	}
 
 	/**
-	 * @param tranzakcioLID the tranzakcioLID to set
+	 * A lakás tranzakció azonosítóját állítja be.
+	 * 
+	 * @param tranzakcioLID a lakás tranzakció azonosítója
 	 */
 	public void setTranzakcioLID(int tranzakcioLID) {
 		this.tranzakcioLID = tranzakcioLID;
 	}
 
 	/**
-	 * @return the lakasID
+	 * A lakás azonosítóját adja vissza.
+	 * 
+	 * @return a lakás azonosítója
 	 */
 	public int getLakasID() {
 		return lakasID;
 	}
 
 	/**
-	 * @param lakasID the lakasID to set
+	 * A lakás azonosítóját állítja be.
+	 * 
+	 * @param lakasID a lakás azonosítója
 	 */
 	public void setLakasID(int lakasID) {
 		this.lakasID = lakasID;
 	}
 
 	/**
-	 * @return the osszeg
+	 * A lakás tranzakció összegét adja vissza.
+	 * 
+	 * @return a lakás tranzakció összege
 	 */
 	public int getOsszeg() {
 		return osszeg;
 	}
 
 	/**
-	 * @param osszeg the osszeg to set
+	 * A lakás tranzakció összegét állítja be.
+	 * 
+	 * @param osszeg a lakás tranzakció összege
 	 */
 	public void setOsszeg(int osszeg) {
 		this.osszeg = osszeg;
 	}
 
 	/**
-	 * @return the datum
+	 * A lakás tranzakció dátumát adja vissza.
+	 * 
+	 * @return a lakástranzakció dátuma
 	 */
 	public DateTime getDatum() {
 		return datum;
 	}
 
 	/**
-	 * @param datum the datum to set
+	 * A lakás tranzakció dátumát állítja be.
+	 * 
+	 * @param datum a lakás tranzakció dátuma
 	 */
 	public void setDatum(DateTime datum) {
 		this.datum = datum;
 	}
 
 	/**
-	 * @return the leiras
+	 * A lakás tranzakció leírását adja vissza.
+	 * 
+	 * @return a lakás tranzakció leírása
 	 */
 	public String getLeiras() {
 		return leiras;
 	}
 
 	/**
-	 * @param leiras the leiras to set
+	 * A lakás tranzakció leírását állítja be.
+	 * 
+	 * @param leiras a lakás tranzakció leírása
 	 */
 	public void setLeiras(String leiras) {
 		this.leiras = leiras;
 	}
 
 	/**
-	 * @return the befizeto
+	 * A lakás tranzakció befizetőjét adja vissza.
+	 * 
+	 * @return a lakás tranzakció befizetője
 	 */
 	public String getBefizeto() {
 		return befizeto;
 	}
 
 	/**
-	 * @param befizeto the befizeto to set
+	 * A lakás tranzakció befizetőjét állítja be.
+	 * 
+	 * @param befizeto a lakás tranzakció befizetője
 	 */
 	public void setBefizeto(String befizeto) {
 		this.befizeto = befizeto;

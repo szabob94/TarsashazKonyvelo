@@ -18,13 +18,18 @@ import hu.unideb.inf.konyvelo.Model.TranzakcioL;
 import hu.unideb.inf.konyvelo.Model.TranzakcioT;
 
 /**
- * @author Bence
+ * Osztály, amely a tranzakciók elosztásáért felel.
  *
  */
 public class ElosztoServices {
 	
 	private static Logger	logger = LoggerFactory.getLogger(ElosztoServices.class);
 	
+	/**
+	 * Elosztja a társasháztranzakció összegét a társasház lakásai között.
+	 * 
+	 * @param tranzakcioID az elosztandó tranzakció azonosítója
+	 */
 	public void elosztT(int tranzakcioID){
 		DAOGet get = new DAOGet();
 		TranzakcioT tranzakcio = get.getTranzakciokTByTranzakcioID(tranzakcioID);
@@ -42,6 +47,11 @@ public class ElosztoServices {
 		
 	}
 	
+	/**
+	 * Levonja a kapott lakástranzakció összegés a társasház tartozásaiból.
+	 * 
+	 * @param tranzakcioID a levonandó tranzakció azonosítója
+	 */
 	public void elosztL(int tranzakcioID){
 		DAOGet get = new DAOGet();
 		TranzakcioL tranzakcio = get.getTranzakciokLByTranzakcioID(tranzakcioID);

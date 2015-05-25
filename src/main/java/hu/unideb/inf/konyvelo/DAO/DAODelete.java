@@ -18,13 +18,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author Bence
+ * Osztály, amely az adatbázisból való törlésekért közvetlenül felel.
  *
  */
 public class DAODelete {
 	
 	private static Logger	logger = LoggerFactory.getLogger(DAODelete.class);
 
+	/**
+	 * Kitöröl egy társasházat az adatbázisból.
+	 * 
+	 * @param tarsashaz a kitörlendő társasház
+	 */
 	public void deleteTarsashaz(Tarsashaz tarsashaz) {
 		try (Connection connection = ConnectionFactory.getConnection()) {
 			PreparedStatement preparedStatement = connection
@@ -37,6 +42,11 @@ public class DAODelete {
 		logger.debug("Társasház törlése");
 	}
 
+	/**
+	 * Kitöröl egy lakást az adatbázisból.
+	 * 
+	 * @param lakas a kitörlendő lakás
+	 */
 	public void deleteLakas(Lakas lakas) {
 		try (Connection connection = ConnectionFactory.getConnection()) {
 			PreparedStatement preparedStatement = connection
@@ -49,6 +59,11 @@ public class DAODelete {
 		logger.debug("Lakás törlése");
 	}
 
+	/**
+	 * Kitöröl egy lakás tranzakciót az adatbázisból.
+	 * 
+	 * @param tranzakcioL a kitörlendő lakás tranzakció
+	 */
 	public void deleteTranzakcioL(TranzakcioL tranzakcioL) {
 		try (Connection connection = ConnectionFactory.getConnection()) {
 			PreparedStatement preparedStatement = connection
@@ -61,6 +76,11 @@ public class DAODelete {
 		logger.debug("TranzakcióL törlése");
 	}
 
+	/**
+	 * Kitöröl egy társasház tranzakciót az adatbázisból.
+	 * 
+	 * @param tranzakcioT a kitörlendő társasház tranzakció
+	 */
 	public void deleteTranzakcioT(TranzakcioT tranzakcioT) {
 		try (Connection connection = ConnectionFactory.getConnection()) {
 			PreparedStatement preparedStatement = connection

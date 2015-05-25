@@ -9,6 +9,14 @@
 
 	<name>tarsashazkonyvelo</name>
 	<url>http://maven.apache.org</url>
+	<description>Egy ingyenes, nyílt forráskódú alkalmazás társasházak könyveléséhez</description>
+	<developers>
+		<developer>
+			<id>szabob94</id>
+			<name>Bence Szabó</name>
+			<email>bence.szabo944@gmail.com</email>
+		</developer>
+	</developers>
 
 	<licenses>
 		<license>
@@ -23,6 +31,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 
 	<dependencies>

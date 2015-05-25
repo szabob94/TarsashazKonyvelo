@@ -8,7 +8,6 @@
 	<packaging>jar</packaging>
 
 	<name>tarsashazkonyvelo</name>
-	<url>http://maven.apache.org</url>
 	<description>Egy ingyenes, nyílt forráskódú alkalmazás társasházak könyveléséhez</description>
 	<developers>
 		<developer>
@@ -17,6 +16,10 @@
 			<email>bence.szabo944@gmail.com</email>
 		</developer>
 	</developers>
+
+	<scm>
+		<url>https://github.com/szabob94/TarsashazKonyvelo</url>
+	</scm>
 
 	<licenses>
 		<license>

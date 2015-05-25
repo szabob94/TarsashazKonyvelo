@@ -29,6 +29,8 @@ public class InsertServicesTest {
 	@Test
 	public void testInsertTranzakcioL(){
 		InsertServices inS = new InsertServices();
+		TranzakcioL ures = new TranzakcioL();
+		assertNotNull("Üres", ures);
 		DAOGet get = new DAOGet();
 		List<TranzakcioL> tranzakciok = get.getTranzakciokL();
 		int size=tranzakciok.size();
@@ -52,6 +54,8 @@ public class InsertServicesTest {
 	@Test
 	public void testInsertTranzakcioT(){
 		InsertServices inS = new InsertServices();
+		TranzakcioT ures = new TranzakcioT();
+		assertNotNull("Üres", ures);
 		DAOGet get = new DAOGet();
 		List<TranzakcioT> tranzakciok = get.getTranzakciokT();
 		int size=tranzakciok.size();
@@ -75,6 +79,17 @@ public class InsertServicesTest {
 	@Test
 	public void testInsertLakas(){
 		InsertServices inS = new InsertServices();
+		Lakas ures = new Lakas();
+		assertNotNull("Üres", ures);
+		ures.setAjto(5);
+		assertEquals("5-nek kéne hogy legyen", 5, ures.getAjto());
+		ures.setEmelet(4);
+		assertEquals("4-nek kéne hogy legyen", 4, ures.getEmelet());
+		ures.setTulajdonos("valaki");
+		assertEquals("valaki", ures.getTulajdonos());
+		ures.setId(5);
+		assertEquals("5-nek kéne hogy legyen", 5, ures.getId());
+		
 		DAOGet get = new DAOGet();
 		List<Lakas> lakasok = get.getLakasokEgyszeru();
 		int size=lakasok.size();
@@ -98,6 +113,8 @@ public class InsertServicesTest {
 	@Test
 	public void testInsertTarsashaz(){
 		InsertServices inS = new InsertServices();
+		Tarsashaz ures = new Tarsashaz();
+		assertNotNull("Üres", ures);
 		DAOGet get = new DAOGet();
 		List<Tarsashaz> tarsashazak = get.getTarsashazakEgyszeru();
 		int size=tarsashazak.size();

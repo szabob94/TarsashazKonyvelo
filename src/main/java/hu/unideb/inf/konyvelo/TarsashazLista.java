@@ -16,11 +16,15 @@ import javax.swing.ListSelectionModel;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.JButton;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class TarsashazLista extends JPanel {
 	
+	private static Logger	logger = LoggerFactory.getLogger(TarsashazLista.class);
 	JScrollPane scrollPane;
 	JList<Tarsashaz> tarsashazLista;
 	DefaultListModel listModel;
@@ -38,6 +42,7 @@ public class TarsashazLista extends JPanel {
 	}
 	
 	public void setTarsashazList(List<Tarsashaz> lista){
+		logger.info("Társasházlista létrehozása");
 		tarsashazak=lista;
 		listModel = new DefaultListModel();
 		for(Tarsashaz th : tarsashazak){
@@ -69,6 +74,7 @@ public class TarsashazLista extends JPanel {
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				logger.info("Váltás: Főmenü");
 				ActivateLayer(0, layeredPane);
 			}
 		});
@@ -81,7 +87,8 @@ public class TarsashazLista extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				LekeroServices ls = new LekeroServices();
-				tranzakcioTLista.setTranzakcioTLista(ls.getTranzakcioTk());;
+				tranzakcioTLista.setTranzakcioTLista(ls.getTranzakcioTk());
+				logger.info("Váltás: Tranzakciók T");
 				ActivateLayer(11, layeredPane);
 			}
 		});

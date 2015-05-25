@@ -11,12 +11,16 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 
 import org.joda.time.DateTime;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class ModositTranzakcioL extends JPanel {
+	
+	private static Logger	logger = LoggerFactory.getLogger(ModositTranzakcioL.class);
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -120,6 +124,7 @@ public class ModositTranzakcioL extends JPanel {
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				logger.info("Váltás: Adatok módosítása/felvétele");
 				ActivateLayer(1, layeredPane);
 			}
 		});

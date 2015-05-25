@@ -17,8 +17,12 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class LakasLista extends JPanel {
 	
+	private static Logger	logger = LoggerFactory.getLogger(LakasLista.class);
 	JScrollPane scrollPane;
 	JList list;
 	JList<Lakas> lakasLista;
@@ -69,7 +73,7 @@ public class LakasLista extends JPanel {
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				scrollPane.remove(list);
+				logger.info("Váltás: Főmenü");
 				ActivateLayer(0, layeredPane);
 			}
 		});
@@ -83,6 +87,7 @@ public class LakasLista extends JPanel {
 			public void mouseClicked(MouseEvent e) {
 				LekeroServices ls = new LekeroServices();
 				tranzakcioLLista.setTranzakcioLLista(ls.getTranzakcioLek());;
+				logger.info("Váltás: Tranzakciók L");
 				ActivateLayer(10, layeredPane);
 			}
 		});

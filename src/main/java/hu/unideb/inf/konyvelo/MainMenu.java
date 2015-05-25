@@ -11,6 +11,9 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
@@ -19,6 +22,7 @@ import java.awt.event.MouseEvent;
 public class MainMenu {
 
 	private JFrame frame;
+	private static Logger	logger = LoggerFactory.getLogger(MainMenu.class);
 
 	/**
 	 * Launch the application.
@@ -64,6 +68,8 @@ public class MainMenu {
 
 		JLayeredPane layeredPane = new JLayeredPane();
 		frame.getContentPane().add(layeredPane, BorderLayout.CENTER);
+		
+		logger.info("Ablak elkészült");
 		
 		ModositTranzakcioL insertTranzakcioL = new ModositTranzakcioL(layeredPane);
 		layeredPane.add(insertTranzakcioL);
@@ -119,6 +125,7 @@ public class MainMenu {
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				logger.info("Váltás: Adatok módosítása/ felvétele");
 				ActivateLayer(1, layeredPane);
 			}
 		});
@@ -129,6 +136,7 @@ public class MainMenu {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ActivateLayer(12, layeredPane);
+				logger.info("Váltás: Statisztikák");
 			}
 		});
 		menu.add(btnNewButton_1);
@@ -138,6 +146,7 @@ public class MainMenu {
 			public void actionPerformed(ActionEvent e) {
 				LekeroServices ls = new LekeroServices();
 				tarsashazLista.setTarsashazList(ls.getTarsashazak());
+				logger.info("Váltás: Társasházak megtekintése");
 				ActivateLayer(8, layeredPane);
 			}
 		});
@@ -149,6 +158,7 @@ public class MainMenu {
 			public void actionPerformed(ActionEvent e) {
 				LekeroServices ls = new LekeroServices();
 				lakasLista.setLakasList(ls.getLakasok());
+				logger.info("Váltás: Lakások megtekintése");
 				ActivateLayer(9, layeredPane);
 			}
 		});
@@ -165,6 +175,7 @@ public class MainMenu {
 		btnNewButton_4.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				logger.info("Váltás: Társasház hozzáadása/módosítása");
 				ActivateLayer(7, layeredPane);
 			}
 		});
@@ -176,6 +187,7 @@ public class MainMenu {
 		btnNewButton_5.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				logger.info("Váltás: Lakás hozzáadása/módosítása");
 				ActivateLayer(2, layeredPane);
 			}
 		});
@@ -186,6 +198,7 @@ public class MainMenu {
 		btnNewButton_6.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				logger.info("Váltás: Társasház tranzakció hozzáadása/módosítása");
 				ActivateLayer(4, layeredPane);
 			}
 		});
@@ -196,6 +209,7 @@ public class MainMenu {
 		btnNewButton_7.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				logger.info("Váltás: Lakás tranzakció hozzáadása/módosítása");
 				ActivateLayer(3, layeredPane);
 			}
 		});
@@ -206,6 +220,7 @@ public class MainMenu {
 		btnNewButton_8.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				logger.info("Váltás: Lakás tranzakció végrehajtása");
 				ActivateLayer(6, layeredPane);
 			}
 		});
@@ -216,6 +231,7 @@ public class MainMenu {
 		btnNewButton_9.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				logger.info("Váltás: Társasház tranzakció végrehajtása");
 				ActivateLayer(5, layeredPane);
 			}
 		});
@@ -226,6 +242,7 @@ public class MainMenu {
 		btnVissza.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				logger.info("Váltás: Főmenü");
 				ActivateLayer(0, layeredPane);
 			}
 		});
@@ -241,6 +258,7 @@ public class MainMenu {
 		btnTarsashazStatisztika.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				logger.info("Váltás: Társasház statisztika");
 				ActivateLayer(13, layeredPane);
 				tarsashazStatisztika.setStatisztika();
 			}
@@ -252,6 +270,7 @@ public class MainMenu {
 		btnLakasStatisztika.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				logger.info("Váltás: Lakás statisztika");
 				ActivateLayer(14, layeredPane);
 				lakasStatisztika.setStatisztika();
 			}
@@ -263,6 +282,7 @@ public class MainMenu {
 		btnRezsiTarsashaz.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				logger.info("Váltás: Rezsicsökkentés társasházra nézve");
 				ActivateLayer(15, layeredPane);
 			}
 		});
@@ -273,6 +293,7 @@ public class MainMenu {
 		btnRezsiLakas.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				logger.info("Váltás: Rezsicsökkentés lakásra nézve");
 				ActivateLayer(16, layeredPane);
 			}
 		});
@@ -283,6 +304,7 @@ public class MainMenu {
 		btnStatVissza.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				logger.info("Váltás: Főmenü");
 				ActivateLayer(0, layeredPane);
 			}
 		});

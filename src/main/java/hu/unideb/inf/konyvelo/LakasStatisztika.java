@@ -17,8 +17,12 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class LakasStatisztika extends JPanel {
 
+	private static Logger	logger = LoggerFactory.getLogger(LakasStatisztika.class);
 	List<Tarsashaz> tarsashazak;
 	List<Lakas> lakasok;
 	JLabel lblTrsashzszm;
@@ -81,6 +85,7 @@ public class LakasStatisztika extends JPanel {
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				logger.info("Váltás: Statisztika");
 				ActivateLayer(12, layeredPane);
 			}
 		});
@@ -96,6 +101,7 @@ public class LakasStatisztika extends JPanel {
 		btnMehet.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				logger.info("Adatokkal feltöltve");
 				setStatisztika(Integer.parseInt(textField.getText()));
 			}
 		});

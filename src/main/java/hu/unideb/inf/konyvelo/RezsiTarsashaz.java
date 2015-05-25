@@ -12,10 +12,15 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class RezsiTarsashaz extends JPanel {
+	
+	private static Logger	logger = LoggerFactory.getLogger(RezsiTarsashaz.class);
 	private JTextField textField;
 	JLabel label;
 	JLabel label_1;
@@ -49,6 +54,7 @@ public class RezsiTarsashaz extends JPanel {
 		btnMehet.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				logger.info("Adatok feltöltése");
 				LekeroServices ls = new LekeroServices();
 				tarsashaz = ls.getTarsashazByID(Integer.parseInt(textField.getText()));
 				StatisztikaServices ss = new StatisztikaServices();
@@ -88,6 +94,7 @@ public class RezsiTarsashaz extends JPanel {
 		btnVissza.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				logger.info("Váltás: Statisztika");
 				ActivateLayer(12, layeredPane);
 			}
 		});

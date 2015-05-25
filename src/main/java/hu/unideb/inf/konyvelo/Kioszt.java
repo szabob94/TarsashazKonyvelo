@@ -13,8 +13,12 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JLabel;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Kioszt extends JPanel {
 	private JTextField textField;
+	private static Logger	logger = LoggerFactory.getLogger(Kioszt.class);
 	
 	public static void ActivateLayer(int i, JLayeredPane layeredPane) {
 
@@ -59,6 +63,7 @@ public class Kioszt extends JPanel {
 		btnVissza.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				logger.info("Váltás: Adatok módosítása/felvétele");
 				ActivateLayer(1, layeredPane);
 			}
 		});

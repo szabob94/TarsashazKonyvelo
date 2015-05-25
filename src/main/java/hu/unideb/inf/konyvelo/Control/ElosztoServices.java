@@ -5,6 +5,10 @@ package hu.unideb.inf.konyvelo.Control;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import hu.unideb.inf.konyvelo.MainMenu;
 import hu.unideb.inf.konyvelo.DAO.DAOGet;
 import hu.unideb.inf.konyvelo.DAO.DAOInsert;
 import hu.unideb.inf.konyvelo.DAO.DAOUpdate;
@@ -19,6 +23,8 @@ import hu.unideb.inf.konyvelo.Model.TranzakcioT;
  */
 public class ElosztoServices {
 	
+	private static Logger	logger = LoggerFactory.getLogger(ElosztoServices.class);
+	
 	public void elosztT(int tranzakcioID){
 		DAOGet get = new DAOGet();
 		TranzakcioT tranzakcio = get.getTranzakciokTByTranzakcioID(tranzakcioID);
@@ -32,6 +38,7 @@ public class ElosztoServices {
 			lakas.setTartozas(lakas.getTartozas()+egyfore);
 			daoUpdate.updateLakas(lakas);
 		}
+		logger.debug("Társasház tranzakció szétosztása megtörtént");
 		
 	}
 	
@@ -45,5 +52,6 @@ public class ElosztoServices {
 		daoUpdate.updateLakas(lakas);
 		tarsashaz.setTartozas(tarsashaz.getTartozas()-tranzakcio.getOsszeg());
 		daoUpdate.updateTarsashaz(tarsashaz);
+		logger.debug("Lakás tranzakció szétosztása megtörtént");
 	}
 }

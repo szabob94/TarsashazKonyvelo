@@ -12,8 +12,12 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class TranzakcioLVegrehajt extends JPanel {
 	
+	private static Logger	logger = LoggerFactory.getLogger(TranzakcioLVegrehajt.class);
 	private JTextField textField;
 	
 	public static void ActivateLayer(int i, JLayeredPane layeredPane) {
@@ -60,6 +64,7 @@ public class TranzakcioLVegrehajt extends JPanel {
 		btnMgse.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				logger.info("Váltás: Adatok módosítása/felvétele");
 				ActivateLayer(1, layeredPane);
 			}
 		});

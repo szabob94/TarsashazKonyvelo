@@ -16,8 +16,12 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class TranzakcioLLista extends JPanel {
 	
+	private static Logger	logger = LoggerFactory.getLogger(TranzakcioLLista.class);
 	JScrollPane scrollPane;
 	JList<TranzakcioL> tranzakcioLista;
 	DefaultListModel listModel;
@@ -35,6 +39,7 @@ public class TranzakcioLLista extends JPanel {
 	}
 	
 	public void setTranzakcioLLista(List<TranzakcioL> lista){
+		logger.info("Adatok feltöltése");
 		tranzakciok=lista;
 		listModel = new DefaultListModel();
 		for(TranzakcioL tranzakcio : tranzakciok){
@@ -67,6 +72,7 @@ public class TranzakcioLLista extends JPanel {
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				logger.info("Váltás: Lakások Listája");
 				ActivateLayer(9, layeredPane);
 			}
 		});

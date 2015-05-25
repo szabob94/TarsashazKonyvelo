@@ -3,9 +3,14 @@
  */
 package hu.unideb.inf.konyvelo.DAO;
 
+import hu.unideb.inf.konyvelo.MainMenu;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Bence
@@ -14,6 +19,7 @@ import java.sql.SQLException;
 public class ConnectionFactory {
 	
 	private static ConnectionFactory factory = new ConnectionFactory();
+	private static Logger	logger = LoggerFactory.getLogger(ConnectionFactory.class);
 	
 	static final String DB_URL="";
 	static final String DB_USER="";
@@ -40,6 +46,7 @@ public class ConnectionFactory {
 	}
 	
 	public static Connection getConnection(){
+		logger.debug("Kapcsolat létrejött");
 		return factory.createConnection();
 	}
 

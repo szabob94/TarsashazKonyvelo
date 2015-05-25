@@ -3,6 +3,7 @@
  */
 package hu.unideb.inf.konyvelo.DAO;
 
+import hu.unideb.inf.konyvelo.MainMenu;
 import hu.unideb.inf.konyvelo.Model.Lakas;
 import hu.unideb.inf.konyvelo.Model.Tarsashaz;
 import hu.unideb.inf.konyvelo.Model.TranzakcioL;
@@ -16,12 +17,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.joda.time.DateTime;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Bence
  *
  */
 public class DAOGet {
+	
+	private static Logger	logger = LoggerFactory.getLogger(DAOGet.class);
 
 	public List<Tarsashaz> getTarsashazak() {
 		List<Tarsashaz> tarsashazak = new ArrayList<Tarsashaz>();
@@ -37,6 +42,7 @@ public class DAOGet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		logger.debug("Társasházak lekérdezve");
 		return tarsashazak;
 	}
 	
@@ -54,6 +60,7 @@ public class DAOGet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		logger.debug("Társasházak lekérdezve egyszerűsítve");
 		return tarsashazak;
 	}
 	
@@ -70,6 +77,7 @@ public class DAOGet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		logger.debug("Társasházak lekérdezve id alapján");
 		return tarsashaz;
 	}
 
@@ -90,6 +98,7 @@ public class DAOGet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		logger.debug("Lakások lekérdezve");
 		return lakasok;
 	}
 	
@@ -110,6 +119,7 @@ public class DAOGet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		logger.debug("Lakások lekérdezve egyszerűsítve");
 		return lakasok;
 	}
 	
@@ -130,6 +140,7 @@ public class DAOGet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		logger.debug("Lakások lekérdezve társasház alapján");
 		return lakasok;
 	}
 	
@@ -149,6 +160,7 @@ public class DAOGet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		logger.debug("Lakás lekérdezve id alapján");
 		return lakas;
 	}
 
@@ -169,6 +181,7 @@ public class DAOGet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		logger.debug("TranzakcióL lekérdezve");
 		return tranzakciok;
 	}
 	
@@ -187,6 +200,7 @@ public class DAOGet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		logger.debug("TranzakcióL lekérdezve lakás szerint");
 		return tranzakciok;
 		
 	}
@@ -205,6 +219,7 @@ public class DAOGet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		logger.debug("TranzakcióL lekérdezve id szerint");
 		return tranzakcio;
 		
 	}
@@ -225,6 +240,7 @@ public class DAOGet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		logger.debug("TranzakcióT lekérdezve");
 		return tranzakciok;
 	}
 	
@@ -244,6 +260,7 @@ public class DAOGet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		logger.debug("TranzakcióT lekérdezve társasház alapján");
 		return tranzakciok;
 	}
 	
@@ -262,6 +279,7 @@ public class DAOGet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		logger.debug("TranzakcióT lekérdezve id alapján");
 		return tranzakcio;
 	}
 }

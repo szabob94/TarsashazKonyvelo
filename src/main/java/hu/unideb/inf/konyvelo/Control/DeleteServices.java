@@ -5,6 +5,10 @@ package hu.unideb.inf.konyvelo.Control;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import hu.unideb.inf.konyvelo.MainMenu;
 import hu.unideb.inf.konyvelo.DAO.DAODelete;
 import hu.unideb.inf.konyvelo.DAO.DAOGet;
 import hu.unideb.inf.konyvelo.Model.Lakas;
@@ -18,6 +22,8 @@ import hu.unideb.inf.konyvelo.Model.TranzakcioT;
  */
 public class DeleteServices {
 	
+	private static Logger	logger = LoggerFactory.getLogger(DeleteServices.class);
+	
 	public void deleteTarsashaz(Tarsashaz tarsashaz){
 		DAOGet daoGet = new DAOGet();
 		List<Tarsashaz> tarsashazak = daoGet.getTarsashazakEgyszeru();
@@ -26,6 +32,7 @@ public class DeleteServices {
 				DAODelete daoDelete = new DAODelete();
 				daoDelete.deleteTarsashaz(tarsashaz);
 			}
+		logger.debug("Társasház törlése megtörtént");
 		
 	}
 	
@@ -37,6 +44,7 @@ public class DeleteServices {
 				DAODelete daoDelete = new DAODelete();
 				daoDelete.deleteLakas(lakas);
 			}
+		logger.debug("Lakás törlése megtörtént");
 	}
 	
 	public void deleteTranzakcioL(TranzakcioL tranzakcio){
@@ -47,6 +55,7 @@ public class DeleteServices {
 				DAODelete daoDelete = new DAODelete();
 				daoDelete.deleteTranzakcioL(tranzakcio);;
 			}
+		logger.debug("TranzakcióL törlése megtörtént");
 	}
 	
 	public void deleteTranzakcioT(TranzakcioT tranzakcio){
@@ -57,6 +66,7 @@ public class DeleteServices {
 				DAODelete daoDelete = new DAODelete();
 				daoDelete.deleteTranzakcioT(tranzakcio);;
 			}
+		logger.debug("TranzakcioT törlése megtörtént");
 	}
 
 }

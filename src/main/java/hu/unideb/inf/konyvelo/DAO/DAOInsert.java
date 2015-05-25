@@ -8,6 +8,10 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import hu.unideb.inf.konyvelo.MainMenu;
 import hu.unideb.inf.konyvelo.Model.Lakas;
 import hu.unideb.inf.konyvelo.Model.Tarsashaz;
 import hu.unideb.inf.konyvelo.Model.TranzakcioL;
@@ -18,6 +22,8 @@ import hu.unideb.inf.konyvelo.Model.TranzakcioT;
  *
  */
 public class DAOInsert {
+	
+	private static Logger	logger = LoggerFactory.getLogger(DAOInsert.class);
 
 	public void insertTarsashaz(Tarsashaz tarsashaz) {
 		try (Connection connection = ConnectionFactory.getConnection()) {
@@ -33,6 +39,7 @@ public class DAOInsert {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		logger.debug("Társasház feltöltés");
 	}
 
 	public void insertLakas(Lakas lakas) {
@@ -51,6 +58,7 @@ public class DAOInsert {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		logger.debug("Lakás feltöltés");
 	}
 
 	public void insertTranzakcioL(TranzakcioL tranzakcioL) {
@@ -70,6 +78,7 @@ public class DAOInsert {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		logger.debug("TranzakcióL feltöltés");
 	}
 
 	public void insertTranzakcioT(TranzakcioT tranzakcioT) {
@@ -89,5 +98,6 @@ public class DAOInsert {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		logger.debug("TranzakcióT feltöltése");
 	}
 }

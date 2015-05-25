@@ -6,6 +6,10 @@ package hu.unideb.inf.konyvelo.Control;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import hu.unideb.inf.konyvelo.MainMenu;
 import hu.unideb.inf.konyvelo.DAO.DAOGet;
 import hu.unideb.inf.konyvelo.DAO.DAOInsert;
 import hu.unideb.inf.konyvelo.DAO.DAOUpdate;
@@ -19,6 +23,8 @@ import hu.unideb.inf.konyvelo.Model.TranzakcioT;
  *
  */
 public class InsertServices {
+	
+	private static Logger	logger = LoggerFactory.getLogger(InsertServices.class);
 
 	public void insertTranzakcioL(TranzakcioL tranzakcio) {
 		DAOGet daoGet = new DAOGet();
@@ -35,6 +41,7 @@ public class InsertServices {
 			DAOInsert daoInsert = new DAOInsert();
 			daoInsert.insertTranzakcioL(tranzakcio);
 		}
+		logger.debug("Lakás tranzakció feltöltése megtörtént");
 	}
 
 	public void insertTranzakcioT(TranzakcioT tranzakcio) {
@@ -52,6 +59,7 @@ public class InsertServices {
 			DAOInsert daoInsert = new DAOInsert();
 			daoInsert.insertTranzakcioT(tranzakcio);
 		}
+		logger.debug("Társasház tranzakció feltöltése megtörtént");
 	}
 
 	public void insertLakas(Lakas lakas) {
@@ -68,6 +76,7 @@ public class InsertServices {
 			DAOInsert daoInsert = new DAOInsert();
 			daoInsert.insertLakas(lakas);
 		}
+		logger.debug("Lakás feltöltése megtörtént");
 	}
 	
 	public void insertTarsashaz(Tarsashaz tarsashaz) {
@@ -85,6 +94,7 @@ public class InsertServices {
 			DAOInsert daoInsert = new DAOInsert();
 			daoInsert.insertTarsashaz(tarsashaz);
 		}
+		logger.debug("Társasház feltöltése megtörtént");
 	}
 
 }

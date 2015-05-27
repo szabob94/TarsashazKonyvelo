@@ -51,8 +51,8 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>oracle</artifactId>
+			<groupId>com.db</groupId>
+			<artifactId>ojdbc</artifactId>
 			<version>10.2.0.4.0</version>
 			<scope>compile</scope>
 		</dependency>
@@ -151,6 +151,12 @@
 			</plugin>
 		</plugins>
 	</build>
+    <repositories>
+		<repository>
+			<id>local</id>
+			<url>file://${project.basedir}/lib</url>
+		</repository>
+	</repositories>
 	<reporting>
 		<plugins>
 			<plugin>

@@ -178,9 +178,9 @@ public class TranzakcioT {
 
 	@Override
 	public String toString() {
-		return "TranzakcioT [tranzakcioTID=" + tranzakcioTID + ", tarsashazID="
-				+ tarsashazID + ", osszeg=" + osszeg + ", datum=" + datum
-				+ ", leiras=" + leiras + ", kiiro=" + kiiro + "]";
+		return "Tranzakció T azon=" + tranzakcioTID + ", társasház id="
+				+ tarsashazID + ", összeg=" + osszeg + ", dátum=" + datum
+				+ ", leírás=" + leiras + ", kiíró=" + kiiro;
 	}
 	
 }

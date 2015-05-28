@@ -202,10 +202,9 @@ public class Tarsashaz {
 
 	@Override
 	public String toString() {
-		return "Tarsashaz [id=" + id + ", cim=" + cim + ", emeletszam="
-				+ emeletszam + ", lakasszam=" + lakasszam + ", tartozas="
-				+ tartozas + ", lakasok=" + lakasok + ", tranzakcioTk="
-				+ tranzakcioTk + "]";
+		return "Társasház azon=" + id + ", cim=" + cim + ", emeletszám="
+				+ emeletszam + ", lakásszám=" + lakasszam + ", tartozás="
+				+ tartozas;
 	}
 	
 }

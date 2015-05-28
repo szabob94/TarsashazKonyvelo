@@ -202,10 +202,9 @@ public class Lakas {
 
 	@Override
 	public String toString() {
-		return "Lakas [id=" + id + ", Tulajdonos=" + Tulajdonos
-				+ ", TarsashazID=" + TarsashazID + ", emelet=" + emelet
-				+ ", ajto=" + ajto + ", tartozas=" + tartozas
-				+ ", tranzakciok=" + tranzakciok + "]";
+		return "Lakás azon=" + id + ", Tulajdonos=" + Tulajdonos
+				+ ", társasház azon=" + TarsashazID + ", emelet=" + emelet
+				+ ", ajtó=" + ajto + ", tartozás=" + tartozas;
 	}
 
 	

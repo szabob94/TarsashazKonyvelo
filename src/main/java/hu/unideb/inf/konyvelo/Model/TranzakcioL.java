@@ -184,9 +184,9 @@ public class TranzakcioL {
 
 	@Override
 	public String toString() {
-		return "TranzakcioL [tranzakcioLID=" + tranzakcioLID + ", lakasID="
-				+ lakasID + ", osszeg=" + osszeg + ", datum=" + datum
-				+ ", leiras=" + leiras + ", befizeto=" + befizeto + "]";
+		return "Tranzakció L azon=" + tranzakcioLID + ", lakás azon="
+				+ lakasID + ", összeg=" + osszeg + ", dátum=" + datum
+				+ ", leírás=" + leiras + ", befizető=" + befizeto + "]";
 	}
 	
 	

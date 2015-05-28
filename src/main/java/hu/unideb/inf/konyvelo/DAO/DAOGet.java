@@ -37,7 +37,7 @@ public class DAOGet {
 		try (Connection connection = ConnectionFactory.getConnection()) {
 			Statement statement = connection.createStatement();
 			ResultSet resoultSet = statement
-					.executeQuery("SELECT TARSASHAZID, CIM, EMELETSZAM, LAKASSZAM, TARTOZAS FROM tarsashaz");
+					.executeQuery("SELECT TARSASHAZID, CIM, EMELETSZAM, LAKASSZAM, TARTOZAS FROM tarsashaz ORDER BY TARSASHAZID");
 			while (resoultSet.next()) {
 				Tarsashaz tarsashaz = new Tarsashaz(resoultSet.getInt(1),
 						resoultSet.getString(2),resoultSet.getInt(3) ,resoultSet.getInt(4),resoultSet.getInt(5), getLakasokByTarsashazId(resoultSet.getInt(1)), getTranzakciokTByTarsashazId(resoultSet.getInt(1)));
@@ -60,7 +60,7 @@ public class DAOGet {
 		try (Connection connection = ConnectionFactory.getConnection()) {
 			Statement statement = connection.createStatement();
 			ResultSet resoultSet = statement
-					.executeQuery("SELECT TARSASHAZID, CIM, EMELETSZAM, LAKASSZAM, TARTOZAS FROM tarsashaz");
+					.executeQuery("SELECT TARSASHAZID, CIM, EMELETSZAM, LAKASSZAM, TARTOZAS FROM tarsashaz ORDER BY TARSASHAZID");
 			while (resoultSet.next()) {
 				Tarsashaz tarsashaz = new Tarsashaz(resoultSet.getInt(1),
 						resoultSet.getString(2),resoultSet.getInt(3) ,resoultSet.getInt(4),resoultSet.getInt(5),new ArrayList<Lakas>() , new ArrayList<TranzakcioT>() );
@@ -106,7 +106,7 @@ public class DAOGet {
 		try (Connection connection = ConnectionFactory.getConnection()) {
 			Statement statement = connection.createStatement();
 			ResultSet resoultSet = statement
-					.executeQuery("SELECT * FROM lakas");
+					.executeQuery("SELECT * FROM lakas ORDER BY LAKASID");
 			while (resoultSet.next()) {
 				Lakas lakas = new Lakas(resoultSet.getInt(1),
 						resoultSet.getString(2), resoultSet.getInt(3),
@@ -132,7 +132,7 @@ public class DAOGet {
 		try (Connection connection = ConnectionFactory.getConnection()) {
 			Statement statement = connection.createStatement();
 			ResultSet resoultSet = statement
-					.executeQuery("SELECT * FROM lakas");
+					.executeQuery("SELECT * FROM lakas ORDER BY LAKASID");
 			while (resoultSet.next()) {
 				Lakas lakas = new Lakas(resoultSet.getInt(1),
 						resoultSet.getString(2), resoultSet.getInt(3),
@@ -159,7 +159,7 @@ public class DAOGet {
 		try (Connection connection = ConnectionFactory.getConnection()) {
 			Statement statement = connection.createStatement();
 			ResultSet resoultSet = statement
-					.executeQuery("SELECT * FROM lakas WHERE TARSASHAZID="+id);
+					.executeQuery("SELECT * FROM lakas WHERE TARSASHAZID="+id +" ORDER BY LAKASID");
 			while (resoultSet.next()) {
 				Lakas lakas = new Lakas(resoultSet.getInt(1),
 						resoultSet.getString(2), resoultSet.getInt(3),
@@ -212,7 +212,7 @@ public class DAOGet {
 		try (Connection connection = ConnectionFactory.getConnection()) {
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement
-					.executeQuery("SELECT * FROM tranzakcioL");
+					.executeQuery("SELECT * FROM tranzakcioL ORDER BY TRANZAKCIOLID");
 			while (resultSet.next()) {
 				TranzakcioL tranzakcio = new TranzakcioL(resultSet.getInt(1),
 						resultSet.getInt(2), resultSet.getInt(3),
@@ -237,7 +237,7 @@ public class DAOGet {
 		List<TranzakcioL> tranzakciok=new ArrayList<TranzakcioL>();
 		try(Connection connection=ConnectionFactory.getConnection()){
 			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery("SELECT * FROM TRANZAKCIOL WHERE LAKASID="+id);
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM TRANZAKCIOL WHERE LAKASID="+id+" ORDER BY TRANZAKCIOLID");
 			while(resultSet.next()){
 				TranzakcioL tranzakcio = new TranzakcioL(resultSet.getInt(1),
 						resultSet.getInt(2), resultSet.getInt(3),
@@ -263,7 +263,7 @@ public class DAOGet {
 		TranzakcioL tranzakcio=new TranzakcioL();
 		try(Connection connection=ConnectionFactory.getConnection()){
 			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery("SELECT * FROM TRANZAKCIOL WHERE TRANZAKCIOLID="+id);
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM TRANZAKCIOL WHERE TRANZAKCIOLID="+id+" ORDER BY TRANZAKCIOLID");
 			while(resultSet.next()){
 				tranzakcio = new TranzakcioL(resultSet.getInt(1),
 						resultSet.getInt(2), resultSet.getInt(3),
@@ -288,7 +288,7 @@ public class DAOGet {
 		try (Connection connection = ConnectionFactory.getConnection()) {
 			Statement statement = connection.createStatement();
 			ResultSet resoultSet = statement
-					.executeQuery("SELECT * FROM tranzakcioT");
+					.executeQuery("SELECT * FROM tranzakcioT ORDER BY TRANZAKCIOTID");
 			while (resoultSet.next()) {
 				TranzakcioT tranzakcio = new TranzakcioT(resoultSet.getInt(1),
 						resoultSet.getInt(2), resoultSet.getInt(3),
@@ -314,7 +314,7 @@ public class DAOGet {
 		try (Connection connection = ConnectionFactory.getConnection()) {
 			Statement statement = connection.createStatement();
 			ResultSet resoultSet = statement
-					.executeQuery("SELECT * FROM tranzakcioT WHERE TARSASHAZID="+id);
+					.executeQuery("SELECT * FROM tranzakcioT WHERE TARSASHAZID="+id+" ORDER BY TRANZAKCIOTID");
 			while (resoultSet.next()) {
 				TranzakcioT tranzakcio = new TranzakcioT(resoultSet.getInt(1),
 						resoultSet.getInt(2), resoultSet.getInt(3),

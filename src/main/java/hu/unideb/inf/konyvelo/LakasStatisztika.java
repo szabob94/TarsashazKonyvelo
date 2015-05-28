@@ -116,9 +116,9 @@ public class LakasStatisztika extends JPanel {
 		lakasok=ls.getLakasok();
 		StatisztikaServices ss = new StatisztikaServices();
 		lblTrsashzszm.setText(ss.lakasokSzama(lakasok)+"");
-		lbltlagtartozs.setText(ss.atlagTartozasLakasok(lakasok)+"");
-		lblMaxtartozas.setText(ss.maxTartozasLakas(lakasok)+"");
-		lblssztartozs.setText(ss.osszTartozasLakas(lakasok)+"");
+		lbltlagtartozs.setText(ss.atlagTartozasLakasok(lakasok)+" Ft");
+		lblMaxtartozas.setText(ss.maxTartozasLakas(lakasok)+" Ft");
+		lblssztartozs.setText(ss.osszTartozasLakas(lakasok)+" Ft");
 	}
 
 	public void setStatisztika(int id) {
@@ -127,9 +127,9 @@ public class LakasStatisztika extends JPanel {
 		lakasok=get.getLakasokByTarsashazId(id);
 		StatisztikaServices ss = new StatisztikaServices();
 		lblTrsashzszm.setText(ss.lakasokSzama(lakasok)+"");
-		lbltlagtartozs.setText(ss.atlagTartozasLakasok(lakasok)+"");
-		lblMaxtartozas.setText(ss.maxTartozasLakas(lakasok)+"");
-		lblssztartozs.setText(ss.osszTartozasLakas(lakasok)+"");
+		lbltlagtartozs.setText(ss.atlagTartozasLakasok(lakasok)+" Ft");
+		lblMaxtartozas.setText(ss.maxTartozasLakas(lakasok)+" Ft");
+		lblssztartozs.setText(ss.osszTartozasLakas(lakasok)+" Ft");
 	}
 
 }

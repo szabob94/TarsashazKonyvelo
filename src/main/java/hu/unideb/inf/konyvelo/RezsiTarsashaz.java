@@ -58,28 +58,28 @@ public class RezsiTarsashaz extends JPanel {
 				LekeroServices ls = new LekeroServices();
 				tarsashaz = ls.getTarsashazByID(Integer.parseInt(textField.getText()));
 				StatisztikaServices ss = new StatisztikaServices();
-				label.setText(ss.rezsiElott(tarsashaz.getTartozas())+"");
-				label_1.setText(tarsashaz.getTartozas()+"");
-				label_2.setText(ss.rezsiMegtakarit(Double.parseDouble(label.getText()), Integer.parseInt(label_1.getText()))+"");
+				label.setText(ss.rezsiElott(tarsashaz.getTartozas())+" Ft");
+				label_1.setText(tarsashaz.getTartozas()+" Ft");
+				label_2.setText(ss.rezsiMegtakarit(ss.rezsiElott(tarsashaz.getTartozas()), tarsashaz.getTartozas())+" Ft");
 			}
 		});
 		btnMehet.setBounds(74, 37, 89, 23);
 		add(btnMehet);
 		
 		JLabel lblRezsicskkentsEltt = new JLabel("Rezsicsökkentés előtti tartozás");
-		lblRezsicskkentsEltt.setBounds(74, 110, 197, 30);
+		lblRezsicskkentsEltt.setBounds(74, 110, 240, 30);
 		add(lblRezsicskkentsEltt);
 		
 		label = new JLabel("");
-		label.setBounds(310, 110, 89, 22);
+		label.setBounds(330, 110, 89, 22);
 		add(label);
 		
 		JLabel lblRezsicskkentsUtniTartozs = new JLabel("Rezsicsökkentés utáni tartozás");
-		lblRezsicskkentsUtniTartozs.setBounds(73, 151, 198, 30);
+		lblRezsicskkentsUtniTartozs.setBounds(73, 151, 240, 30);
 		add(lblRezsicskkentsUtniTartozs);
 		
 		label_1 = new JLabel("");
-		label_1.setBounds(309, 151, 114, 22);
+		label_1.setBounds(330, 151, 114, 22);
 		add(label_1);
 		
 		JLabel lblMegtakartottsszeg = new JLabel("Megtakarított összeg");
@@ -87,7 +87,7 @@ public class RezsiTarsashaz extends JPanel {
 		add(lblMegtakartottsszeg);
 		
 		label_2 = new JLabel("");
-		label_2.setBounds(310, 192, 135, 20);
+		label_2.setBounds(330, 192, 135, 20);
 		add(label_2);
 		
 		JButton btnVissza = new JButton("Vissza");

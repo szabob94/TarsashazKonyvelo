@@ -53,7 +53,7 @@ public class ModositTranzakcioT extends JPanel {
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(386, 133, 86, 20);
+		textField_1.setBounds(396, 133, 86, 20);
 		add(textField_1);
 		textField_1.setColumns(10);
 		
@@ -63,12 +63,12 @@ public class ModositTranzakcioT extends JPanel {
 		textField_2.setColumns(10);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(386, 187, 86, 20);
+		textField_3.setBounds(396, 187, 86, 20);
 		add(textField_3);
 		textField_3.setColumns(10);
 		
 		textField_4 = new JTextField();
-		textField_4.setBounds(386, 253, 86, 20);
+		textField_4.setBounds(396, 253, 86, 20);
 		add(textField_4);
 		textField_4.setColumns(10);
 		
@@ -101,11 +101,11 @@ public class ModositTranzakcioT extends JPanel {
 		add(lblId);
 		
 		JLabel lblLaksId = new JLabel("Társasház ID");
-		lblLaksId.setBounds(298, 136, 46, 14);
+		lblLaksId.setBounds(298, 136, 120, 14);
 		add(lblLaksId);
 		
 		JLabel lblsszeg = new JLabel("Összeg");
-		lblsszeg.setBounds(55, 228, 46, 14);
+		lblsszeg.setBounds(55, 228, 60, 14);
 		add(lblsszeg);
 		
 		JLabel lblDtum = new JLabel("Dátum");
@@ -120,7 +120,7 @@ public class ModositTranzakcioT extends JPanel {
 		lblLers.setBounds(98, 300, 46, 14);
 		add(lblLers);
 		
-		JButton btnNewButton_1 = new JButton("Mégse");
+		JButton btnNewButton_1 = new JButton("Vissza");
 		btnNewButton_1.setBounds(305, 51, 129, 46);
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
 			@Override
@@ -141,7 +141,7 @@ public class ModositTranzakcioT extends JPanel {
 				ds.deleteTranzakcioT(tranzakcio);
 			}
 		});
-		btnTrlsAzAdatbzisbl.setBounds(111, 342, 139, 46);
+		btnTrlsAzAdatbzisbl.setBounds(111, 342, 210, 46);
 		add(btnTrlsAzAdatbzisbl);
 
 	}

@@ -100,11 +100,11 @@ public class ModositTranzakcioL extends JPanel {
 		add(lblId);
 		
 		JLabel lblLaksId = new JLabel("Lakás ID");
-		lblLaksId.setBounds(298, 136, 46, 14);
+		lblLaksId.setBounds(298, 136, 80, 14);
 		add(lblLaksId);
 		
 		JLabel lblsszeg = new JLabel("Összeg");
-		lblsszeg.setBounds(55, 228, 46, 14);
+		lblsszeg.setBounds(55, 228, 60, 14);
 		add(lblsszeg);
 		
 		JLabel lblDtum = new JLabel("Dátum");
@@ -112,14 +112,14 @@ public class ModositTranzakcioL extends JPanel {
 		add(lblDtum);
 		
 		JLabel lblBefizet = new JLabel("Befizető");
-		lblBefizet.setBounds(298, 256, 46, 14);
+		lblBefizet.setBounds(298, 256, 70, 14);
 		add(lblBefizet);
 		
 		JLabel lblLers = new JLabel("Leírás");
 		lblLers.setBounds(98, 300, 46, 14);
 		add(lblLers);
 		
-		JButton btnNewButton_1 = new JButton("Mégse");
+		JButton btnNewButton_1 = new JButton("Vissza");
 		btnNewButton_1.setBounds(305, 51, 129, 46);
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
 			@Override
@@ -140,7 +140,7 @@ public class ModositTranzakcioL extends JPanel {
 				ds.deleteTranzakcioL(tranzakcio);
 			}
 		});
-		btnTrlsAzAdatbzisbl.setBounds(111, 342, 139, 46);
+		btnTrlsAzAdatbzisbl.setBounds(111, 342, 210, 46);
 		add(btnTrlsAzAdatbzisbl);
 
 	}

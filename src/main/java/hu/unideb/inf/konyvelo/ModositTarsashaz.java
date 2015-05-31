@@ -46,7 +46,7 @@ public class ModositTarsashaz extends JPanel {
 		setLayout(null);
 		setBounds(0, 0, 584, 411);
 		
-		JButton btnNewButton_1 = new JButton("Mégse");
+		JButton btnNewButton_1 = new JButton("Vissza");
 		btnNewButton_1.setBounds(337, 56, 126, 52);
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
 			@Override
@@ -63,17 +63,17 @@ public class ModositTarsashaz extends JPanel {
 		
 		textField = new JTextField();
 		lblId.setLabelFor(textField);
-		textField.setBounds(146, 143, 86, 20);
+		textField.setBounds(166, 143, 86, 20);
 		add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Társasház címe");
-		lblNewLabel.setBounds(34, 180, 102, 35);
+		lblNewLabel.setBounds(34, 180, 140, 35);
 		add(lblNewLabel);
 		
 		textField_1 = new JTextField();
 		lblNewLabel.setLabelFor(textField_1);
-		textField_1.setBounds(146, 183, 305, 20);
+		textField_1.setBounds(166, 183, 305, 20);
 		add(textField_1);
 		textField_1.setColumns(10);
 		
@@ -82,25 +82,25 @@ public class ModositTarsashaz extends JPanel {
 		add(lblTartozs);
 		
 		textField_2 = new JTextField();
-		textField_2.setBounds(146, 228, 191, 20);
+		textField_2.setBounds(166, 228, 191, 20);
 		add(textField_2);
 		textField_2.setColumns(10);
 		
 		JLabel lblEmeletSzam = new JLabel("Emeletek száma");
-		lblEmeletSzam.setBounds(34, 264, 100, 26);
+		lblEmeletSzam.setBounds(34, 264, 130, 26);
 		add(lblEmeletSzam);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(146, 267, 191, 20);
+		textField_3.setBounds(166, 267, 191, 20);
 		add(textField_3);
 		textField_3.setColumns(10);
 		
 		JLabel lblLakasSzam = new JLabel("Lakások száma");
-		lblLakasSzam.setBounds(34, 290, 90, 26);
+		lblLakasSzam.setBounds(34, 290, 120, 26);
 		add(lblLakasSzam);
 		
 		textField_4 = new JTextField();
-		textField_4.setBounds(146, 293, 191, 20);
+		textField_4.setBounds(166, 293, 191, 20);
 		add(textField_4);
 		textField_4.setColumns(10);
 		
@@ -131,7 +131,7 @@ public class ModositTarsashaz extends JPanel {
 				ds.deleteTarsashaz(tarsashaz);
 			}
 		});
-		btnTrlsAzAdatbzisbl.setBounds(83, 342, 180, 40);
+		btnTrlsAzAdatbzisbl.setBounds(83, 342, 210, 40);
 		add(btnTrlsAzAdatbzisbl);
 
 	}

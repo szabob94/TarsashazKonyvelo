@@ -45,7 +45,7 @@ public class ModositLakas extends JPanel {
 		setLayout(null);
 		setBounds(0, 0, 584, 411);
 		
-		JButton btnMgse = new JButton("Mégse");
+		JButton btnMgse = new JButton("Vissza");
 		btnMgse.setBounds(301, 74, 141, 50);
 		btnMgse.addMouseListener(new MouseAdapter() {
 			@Override
@@ -61,15 +61,15 @@ public class ModositLakas extends JPanel {
 		add(lblId);
 		
 		JLabel lblTulajdonos = new JLabel("Tulajdonos");
-		lblTulajdonos.setBounds(247, 156, 70, 14);
+		lblTulajdonos.setBounds(247, 156, 100, 14);
 		add(lblTulajdonos);
 		
 		JLabel lblNewLabel = new JLabel("Társasház ID");
-		lblNewLabel.setBounds(10, 212, 70, 14);
+		lblNewLabel.setBounds(10, 212, 120, 14);
 		add(lblNewLabel);
 		
 		JLabel lblEmelet = new JLabel("Emelet");
-		lblEmelet.setBounds(247, 212, 46, 14);
+		lblEmelet.setBounds(247, 212, 60, 14);
 		add(lblEmelet);
 		
 		JLabel lblAjt = new JLabel("Ajtó");
@@ -77,36 +77,36 @@ public class ModositLakas extends JPanel {
 		add(lblAjt);
 		
 		JLabel lblTartozs = new JLabel("Tartozás");
-		lblTartozs.setBounds(10, 296, 46, 14);
+		lblTartozs.setBounds(10, 296, 70, 14);
 		add(lblTartozs);
 		
 		textField = new JTextField();
-		textField.setBounds(90, 153, 86, 20);
+		textField.setBounds(110, 153, 86, 20);
 		add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(327, 153, 197, 20);
+		textField_1.setBounds(337, 153, 197, 20);
 		add(textField_1);
 		textField_1.setColumns(10);
 		
 		textField_2 = new JTextField();
-		textField_2.setBounds(90, 209, 86, 20);
+		textField_2.setBounds(110, 209, 86, 20);
 		add(textField_2);
 		textField_2.setColumns(10);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(327, 209, 86, 20);
+		textField_3.setBounds(337, 209, 86, 20);
 		add(textField_3);
 		textField_3.setColumns(10);
 		
 		textField_4 = new JTextField();
-		textField_4.setBounds(327, 249, 86, 20);
+		textField_4.setBounds(337, 249, 86, 20);
 		add(textField_4);
 		textField_4.setColumns(10);
 		
 		textField_5 = new JTextField();
-		textField_5.setBounds(90, 293, 134, 20);
+		textField_5.setBounds(110, 293, 134, 20);
 		add(textField_5);
 		textField_5.setColumns(10);
 
@@ -138,7 +138,7 @@ public class ModositLakas extends JPanel {
 				ds.deleteLakas(lakas);
 			}
 		});
-		btnTrlsAzAdatbzisbl.setBounds(83, 342, 141, 50);
+		btnTrlsAzAdatbzisbl.setBounds(83, 342, 210, 50);
 		add(btnTrlsAzAdatbzisbl);
 		
 	}

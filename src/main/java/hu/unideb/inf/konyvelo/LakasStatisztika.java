@@ -54,7 +54,7 @@ public class LakasStatisztika extends JPanel {
 		add(lblTrsashzakSzma);
 
 		lblTrsashzszm = new JLabel("LakásSzám");
-		lblTrsashzszm.setBounds(267, 94, 105, 23);
+		lblTrsashzszm.setBounds(287, 94, 105, 23);
 		add(lblTrsashzszm);
 
 		JLabel lbltlagTartozs = new JLabel("Átlag tartozás");
@@ -62,15 +62,15 @@ public class LakasStatisztika extends JPanel {
 		add(lbltlagTartozs);
 
 		lbltlagtartozs = new JLabel("ÁtlagTartozás");
-		lbltlagtartozs.setBounds(267, 159, 87, 23);
+		lbltlagtartozs.setBounds(287, 159, 87, 23);
 		add(lbltlagtartozs);
 
 		JLabel lblLegmagasabbTartozs = new JLabel("Legmagasabb Tartozás");
-		lblLegmagasabbTartozs.setBounds(107, 216, 126, 29);
+		lblLegmagasabbTartozs.setBounds(107, 216, 190, 29);
 		add(lblLegmagasabbTartozs);
 
 		lblMaxtartozas = new JLabel("MaxTartozas");
-		lblMaxtartozas.setBounds(267, 219, 92, 23);
+		lblMaxtartozas.setBounds(287, 219, 92, 23);
 		add(lblMaxtartozas);
 
 		JLabel lblsszesTartozs = new JLabel("Összes tartozás");
@@ -78,7 +78,7 @@ public class LakasStatisztika extends JPanel {
 		add(lblsszesTartozs);
 
 		lblssztartozs = new JLabel("Össztartozás");
-		lblssztartozs.setBounds(267, 276, 87, 19);
+		lblssztartozs.setBounds(287, 276, 87, 19);
 		add(lblssztartozs);
 
 		JButton btnNewButton = new JButton("Vissza");

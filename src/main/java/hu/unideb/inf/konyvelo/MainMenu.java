@@ -299,7 +299,7 @@ public class MainMenu {
 		});
 		statisztika.add(btnRezsiLakas);
 		
-		JButton btnStatVissza = new JButton("vissza");
+		JButton btnStatVissza = new JButton("Vissza");
 		btnStatVissza.setBounds(142, 330, 319, 32);
 		btnStatVissza.addMouseListener(new MouseAdapter() {
 			@Override

@@ -57,9 +57,9 @@ public class RezsiLakas extends JPanel {
 				LekeroServices ls = new LekeroServices();
 				lakas=ls.getLakasByID(Integer.parseInt(textField.getText()));
 				StatisztikaServices ss = new StatisztikaServices();
-				label.setText(ss.rezsiElott(lakas.getTartozas())+"");
-				label_1.setText(lakas.getTartozas()+"");
-				label_2.setText(ss.rezsiMegtakarit(Double.parseDouble(label.getText()), lakas.getTartozas())+"");
+				label.setText(ss.rezsiElott(lakas.getTartozas())+" Ft");
+				label_1.setText(lakas.getTartozas()+" Ft");
+				label_2.setText(ss.rezsiMegtakarit(ss.rezsiElott(lakas.getTartozas()), lakas.getTartozas())+" Ft");
 			}
 		});
 		btnMehet.setBounds(74, 37, 89, 23);
@@ -67,7 +67,7 @@ public class RezsiLakas extends JPanel {
 
 		JLabel lblRezsicskkentsEltt = new JLabel(
 				"Rezsicsökkentés előtti tartozás");
-		lblRezsicskkentsEltt.setBounds(74, 110, 197, 30);
+		lblRezsicskkentsEltt.setBounds(74, 110, 240, 30);
 		add(lblRezsicskkentsEltt);
 
 		label = new JLabel("");
@@ -76,7 +76,7 @@ public class RezsiLakas extends JPanel {
 
 		JLabel lblRezsicskkentsUtniTartozs = new JLabel(
 				"Rezsicsökkentés utáni tartozás");
-		lblRezsicskkentsUtniTartozs.setBounds(73, 151, 198, 30);
+		lblRezsicskkentsUtniTartozs.setBounds(73, 151, 240, 30);
 		add(lblRezsicskkentsUtniTartozs);
 
 		label_1 = new JLabel("");

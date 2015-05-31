@@ -59,7 +59,7 @@ public class TranzakcioLVegrehajt extends JPanel {
 		lblTranzakcioid.setBounds(164, 186, 108, 14);
 		add(lblTranzakcioid);
 		
-		JButton btnMgse = new JButton("Mégse");
+		JButton btnMgse = new JButton("Vissza");
 		btnMgse.setBounds(176, 289, 116, 45);
 		btnMgse.addMouseListener(new MouseAdapter() {
 			@Override

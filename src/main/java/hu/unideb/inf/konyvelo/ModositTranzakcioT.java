@@ -2,13 +2,20 @@ package hu.unideb.inf.konyvelo;
 
 import hu.unideb.inf.konyvelo.Control.DeleteServices;
 import hu.unideb.inf.konyvelo.Control.InsertServices;
+import hu.unideb.inf.konyvelo.Control.LekeroServices;
+import hu.unideb.inf.konyvelo.Model.Lakas;
+import hu.unideb.inf.konyvelo.Model.Tarsashaz;
 import hu.unideb.inf.konyvelo.Model.TranzakcioL;
 import hu.unideb.inf.konyvelo.Model.TranzakcioT;
 
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JButton;
@@ -23,11 +30,13 @@ public class ModositTranzakcioT extends JPanel {
 	
 	private static Logger	logger = LoggerFactory.getLogger(ModositTranzakcioT.class);
 	private JTextField textField;
-	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
+	private List<Tarsashaz> tarsashazak = new ArrayList<Tarsashaz>();
+	private DefaultComboBoxModel<Tarsashaz> box;
+	private JComboBox comboBox;
 	
 	public static void ActivateLayer(int i, JLayeredPane layeredPane) {
 
@@ -38,6 +47,16 @@ public class ModositTranzakcioT extends JPanel {
 				component.setVisible(false);
 			}
 		}
+	}
+	
+	public void setModositTranzakcioT(){
+		LekeroServices ls = new LekeroServices();
+		tarsashazak=ls.getTarsashazak();
+		box= new DefaultComboBoxModel<Tarsashaz>();
+		for(Tarsashaz tarsashaz : tarsashazak){
+			box.addElement(tarsashaz);
+		}
+		comboBox.setModel(box);
 	}
 
 	/**
@@ -52,10 +71,13 @@ public class ModositTranzakcioT extends JPanel {
 		add(textField);
 		textField.setColumns(10);
 		
-		textField_1 = new JTextField();
+		/*textField_1 = new JTextField();
 		textField_1.setBounds(396, 133, 86, 20);
 		add(textField_1);
-		textField_1.setColumns(10);
+		textField_1.setColumns(10);*/
+		comboBox = new JComboBox();
+		comboBox.setBounds(386, 133, 86, 20);
+		add(comboBox);
 		
 		textField_2 = new JTextField();
 		textField_2.setBounds(145, 225, 86, 20);
@@ -83,7 +105,7 @@ public class ModositTranzakcioT extends JPanel {
 			public void mouseClicked(MouseEvent e) {
 				TranzakcioT tranzakcio = new TranzakcioT();
 				tranzakcio.setTranzakcioTID(Integer.parseInt(textField.getText()));
-				tranzakcio.setTarsashazID(Integer.parseInt(textField_1.getText()));
+				tranzakcio.setTarsashazID(((Tarsashaz)comboBox.getSelectedItem()).getId());
 				tranzakcio.setOsszeg(Integer.parseInt(textField_2.getText()));
 				String tmp[] = textField_3.getText().split("/");
 				tranzakcio.setDatum(new DateTime(Integer.parseInt(tmp[0]), Integer.parseInt(tmp[1]), Integer.parseInt(tmp[2]), Integer.parseInt(tmp[3]), Integer.parseInt(tmp[4])));

@@ -2,8 +2,12 @@ package hu.unideb.inf.konyvelo;
 
 import hu.unideb.inf.konyvelo.Control.DeleteServices;
 import hu.unideb.inf.konyvelo.Control.InsertServices;
+import hu.unideb.inf.konyvelo.Control.LekeroServices;
+import hu.unideb.inf.konyvelo.Model.Lakas;
 import hu.unideb.inf.konyvelo.Model.TranzakcioL;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JButton;
@@ -17,16 +21,20 @@ import org.slf4j.LoggerFactory;
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ModositTranzakcioL extends JPanel {
 	
 	private static Logger	logger = LoggerFactory.getLogger(ModositTranzakcioL.class);
 	private JTextField textField;
-	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
+	private List<Lakas> lakasok = new ArrayList<Lakas>();
+	private DefaultComboBoxModel<Lakas> box;
+	private JComboBox comboBox;
 	
 	public static void ActivateLayer(int i, JLayeredPane layeredPane) {
 
@@ -37,6 +45,16 @@ public class ModositTranzakcioL extends JPanel {
 				component.setVisible(false);
 			}
 		}
+	}
+	
+	public void setModositTranzakcioL(){
+		LekeroServices ls = new LekeroServices();
+		lakasok=ls.getLakasok();
+		box= new DefaultComboBoxModel<Lakas>();
+		for(Lakas lakas : lakasok){
+			box.addElement(lakas);
+		}
+		comboBox.setModel(box);
 	}
 
 	/**
@@ -51,10 +69,9 @@ public class ModositTranzakcioL extends JPanel {
 		add(textField);
 		textField.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(386, 133, 86, 20);
-		add(textField_1);
-		textField_1.setColumns(10);
+		comboBox = new JComboBox();
+		comboBox.setBounds(386, 133, 86, 20);
+		add(comboBox);
 		
 		textField_2 = new JTextField();
 		textField_2.setBounds(145, 225, 86, 20);
@@ -82,7 +99,7 @@ public class ModositTranzakcioL extends JPanel {
 			public void mouseClicked(MouseEvent e) {
 				TranzakcioL tranzakcio = new TranzakcioL();
 				tranzakcio.setTranzakcioLID(Integer.parseInt(textField.getText()));
-				tranzakcio.setLakasID(Integer.parseInt(textField_1.getText()));
+				tranzakcio.setLakasID(((Lakas)comboBox.getSelectedItem()).getId());
 				tranzakcio.setOsszeg(Integer.parseInt(textField_2.getText()));
 				String tmp[] = textField_3.getText().split("/");
 				tranzakcio.setDatum(new DateTime(Integer.parseInt(tmp[0]), Integer.parseInt(tmp[1]), Integer.parseInt(tmp[2]), Integer.parseInt(tmp[3]), Integer.parseInt(tmp[4])));

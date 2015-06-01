@@ -202,6 +202,10 @@ public class Lakas {
 
 	@Override
 	public String toString() {
+		return id+"";
+	}
+	
+	public String toString2() {
 		return "Lakás azon=" + id + ", Tulajdonos=" + Tulajdonos
 				+ ", társasház azon=" + TarsashazID + ", emelet=" + emelet
 				+ ", ajtó=" + ajto + ", tartozás=" + tartozas;

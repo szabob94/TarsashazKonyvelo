@@ -44,7 +44,7 @@ public class LakasLista extends JPanel {
 		lakasok=lista;
 		listModel = new DefaultListModel();
 		for(Lakas lakas : lakasok){
-			listModel.addElement(lakas.toString());
+			listModel.addElement(lakas.toString2());
 		}
 		list = new JList(listModel);
 		list.setBounds(10, 101, 564, 299);

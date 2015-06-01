@@ -175,9 +175,13 @@ public class TranzakcioT {
 	public void setKiiro(String kiiro) {
 		this.kiiro = kiiro;
 	}
-
+	
 	@Override
-	public String toString() {
+	public String toString(){
+		return tranzakcioTID+"";
+	}
+
+	public String toString2() {
 		return "Tranzakció T azon=" + tranzakcioTID + ", társasház id="
 				+ tarsashazID + ", összeg=" + osszeg + ", dátum=" + datum
 				+ ", leírás=" + leiras + ", kiíró=" + kiiro;

@@ -181,12 +181,16 @@ public class TranzakcioL {
 	public void setBefizeto(String befizeto) {
 		this.befizeto = befizeto;
 	}
-
+	
 	@Override
 	public String toString() {
+		return tranzakcioLID+"";
+	}
+	
+	public String toString2() {
 		return "Tranzakció L azon=" + tranzakcioLID + ", lakás azon="
 				+ lakasID + ", összeg=" + osszeg + ", dátum=" + datum
-				+ ", leírás=" + leiras + ", befizető=" + befizeto + "]";
+				+ ", leírás=" + leiras + ", befizető=" + befizeto;
 	}
 	
 	

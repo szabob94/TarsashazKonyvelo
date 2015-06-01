@@ -43,7 +43,7 @@ public class TranzakcioTLista extends JPanel {
 		tranzakciok=lista;
 		listModel = new DefaultListModel();
 		for(TranzakcioT tranzakcio : tranzakciok){
-			listModel.addElement(tranzakcio.toString());
+			listModel.addElement(tranzakcio.toString2());
 		}
 		JList list = new JList(listModel);
 		list.setBounds(10, 101, 564, 299);

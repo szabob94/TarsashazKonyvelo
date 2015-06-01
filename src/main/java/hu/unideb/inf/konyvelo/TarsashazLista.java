@@ -46,7 +46,7 @@ public class TarsashazLista extends JPanel {
 		tarsashazak=lista;
 		listModel = new DefaultListModel();
 		for(Tarsashaz th : tarsashazak){
-			listModel.addElement(th.toString());
+			listModel.addElement(th.toString2());
 		}
 		JList list = new JList(listModel);
 		list.setBounds(10, 101, 564, 299);

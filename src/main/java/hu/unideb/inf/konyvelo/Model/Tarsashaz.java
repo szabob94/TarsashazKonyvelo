@@ -202,6 +202,10 @@ public class Tarsashaz {
 
 	@Override
 	public String toString() {
+		return id+"";
+	}
+	
+	public String toString2() {
 		return "Társasház azon=" + id + ", cim=" + cim + ", emeletszám="
 				+ emeletszam + ", lakásszám=" + lakasszam + ", tartozás="
 				+ tartozas;

@@ -188,6 +188,7 @@ public class MainMenu {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				logger.info("Váltás: Lakás hozzáadása/módosítása");
+				insertLakas.setModositLakas();
 				ActivateLayer(2, layeredPane);
 			}
 		});
@@ -221,6 +222,7 @@ public class MainMenu {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				logger.info("Váltás: Lakás tranzakció végrehajtása");
+				vegrehajt.setTranzakcioLVegrehajt();
 				ActivateLayer(6, layeredPane);
 			}
 		});
@@ -232,6 +234,7 @@ public class MainMenu {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				logger.info("Váltás: Társasház tranzakció végrehajtása");
+				kioszt.setKioszt();
 				ActivateLayer(5, layeredPane);
 			}
 		});

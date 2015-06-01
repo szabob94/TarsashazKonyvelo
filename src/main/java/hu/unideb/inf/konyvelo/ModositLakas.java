@@ -2,8 +2,13 @@ package hu.unideb.inf.konyvelo;
 
 import hu.unideb.inf.konyvelo.Control.DeleteServices;
 import hu.unideb.inf.konyvelo.Control.InsertServices;
+import hu.unideb.inf.konyvelo.Control.LekeroServices;
 import hu.unideb.inf.konyvelo.Model.Lakas;
+import hu.unideb.inf.konyvelo.Model.Tarsashaz;
+import hu.unideb.inf.konyvelo.Model.TranzakcioL;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JButton;
@@ -16,16 +21,20 @@ import org.slf4j.LoggerFactory;
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ModositLakas extends JPanel {
 	
 	private static Logger	logger = LoggerFactory.getLogger(ModositLakas.class);
 	private JTextField textField;
 	private JTextField textField_1;
-	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
+	private List<Tarsashaz> tarsashazak = new ArrayList<Tarsashaz>();
+	private DefaultComboBoxModel<Tarsashaz> box;
+	private JComboBox comboBox;
 	
 	public static void ActivateLayer(int i, JLayeredPane layeredPane) {
 
@@ -36,6 +45,16 @@ public class ModositLakas extends JPanel {
 				component.setVisible(false);
 			}
 		}
+	}
+	
+	public void setModositLakas(){
+		LekeroServices ls = new LekeroServices();
+		tarsashazak=ls.getTarsashazak();
+		box= new DefaultComboBoxModel<Tarsashaz>();
+		for(Tarsashaz th : tarsashazak){
+			box.addElement(th);
+		}
+		comboBox.setModel(box);
 	}
 
 	/**
@@ -89,11 +108,10 @@ public class ModositLakas extends JPanel {
 		textField_1.setBounds(337, 153, 197, 20);
 		add(textField_1);
 		textField_1.setColumns(10);
-		
-		textField_2 = new JTextField();
-		textField_2.setBounds(110, 209, 86, 20);
-		add(textField_2);
-		textField_2.setColumns(10);
+
+		comboBox = new JComboBox();
+		comboBox.setBounds(110, 209, 86, 20);
+		add(comboBox);
 		
 		textField_3 = new JTextField();
 		textField_3.setBounds(337, 209, 86, 20);
@@ -117,7 +135,8 @@ public class ModositLakas extends JPanel {
 				Lakas lakas = new Lakas();
 				lakas.setId(Integer.parseInt(textField.getText()));
 				lakas.setTulajdonos(textField_1.getText());
-				lakas.setTarsashazID(Integer.parseInt(textField_2.getText()));
+				//lakas.setTarsashazID(Integer.parseInt(textField_2.getText()));
+				lakas.setTarsashazID(((Tarsashaz)comboBox.getSelectedItem()).getId());
 				lakas.setEmelet(Integer.parseInt(textField_3.getText()));
 				lakas.setAjto(Integer.parseInt(textField_4.getText()));
 				lakas.setTartozas(Integer.parseInt(textField_5.getText()));

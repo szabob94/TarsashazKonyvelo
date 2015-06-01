@@ -9,9 +9,12 @@ import hu.unideb.inf.konyvelo.Model.Tarsashaz;
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
@@ -29,7 +32,8 @@ public class LakasStatisztika extends JPanel {
 	JLabel lbltlagtartozs;
 	JLabel lblMaxtartozas;
 	JLabel lblssztartozs;
-	private JTextField textField;
+	private DefaultComboBoxModel<Tarsashaz> box;
+	private JComboBox comboBox;
 
 	public static void ActivateLayer(int i, JLayeredPane layeredPane) {
 
@@ -40,6 +44,16 @@ public class LakasStatisztika extends JPanel {
 				component.setVisible(false);
 			}
 		}
+	}
+	
+	public void setLakasStatisztika(){
+		LekeroServices ls = new LekeroServices();
+		tarsashazak=ls.getTarsashazak();
+		box= new DefaultComboBoxModel<Tarsashaz>();
+		for(Tarsashaz th : tarsashazak){
+			box.addElement(th);
+		}
+		comboBox.setModel(box);
 	}
 
 	/**
@@ -91,18 +105,17 @@ public class LakasStatisztika extends JPanel {
 		});
 		btnNewButton.setBounds(388, 11, 126, 44);
 		add(btnNewButton);
-
-		textField = new JTextField();
-		textField.setBounds(193, 23, 86, 20);
-		add(textField);
-		textField.setColumns(10);
+		
+		comboBox = new JComboBox();
+		comboBox.setBounds(193, 23, 86, 20);
+		add(comboBox);
 
 		JButton btnMehet = new JButton("Mehet");
 		btnMehet.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				logger.info("Adatokkal feltöltve");
-				setStatisztika(Integer.parseInt(textField.getText()));
+				setStatisztika(((Tarsashaz)comboBox.getSelectedItem()).getId());
 			}
 		});
 		btnMehet.setBounds(31, 11, 132, 44);

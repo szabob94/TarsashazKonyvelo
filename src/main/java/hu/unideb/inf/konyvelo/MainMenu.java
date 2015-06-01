@@ -276,6 +276,7 @@ public class MainMenu {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				logger.info("Váltás: Lakás statisztika");
+				lakasStatisztika.setLakasStatisztika();
 				ActivateLayer(14, layeredPane);
 				lakasStatisztika.setStatisztika();
 			}
@@ -288,6 +289,7 @@ public class MainMenu {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				logger.info("Váltás: Rezsicsökkentés társasházra nézve");
+				rezsiTarsashaz.setRezsiTarsashaz();
 				ActivateLayer(15, layeredPane);
 			}
 		});
@@ -298,6 +300,7 @@ public class MainMenu {
 		btnRezsiLakas.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				rezsiLakas.setRezsiLakas();
 				logger.info("Váltás: Rezsicsökkentés lakásra nézve");
 				ActivateLayer(16, layeredPane);
 			}

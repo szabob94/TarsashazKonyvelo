@@ -6,6 +6,8 @@ import hu.unideb.inf.konyvelo.Model.Tarsashaz;
 
 import java.awt.Component;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -17,6 +19,8 @@ import org.slf4j.LoggerFactory;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RezsiTarsashaz extends JPanel {
 	
@@ -26,6 +30,9 @@ public class RezsiTarsashaz extends JPanel {
 	JLabel label_1;
 	JLabel label_2;
 	Tarsashaz tarsashaz;
+	private List<Tarsashaz> tarsashazak = new ArrayList<Tarsashaz>();
+	private DefaultComboBoxModel<Tarsashaz> box;
+	private JComboBox comboBox;
 	
 	public static void ActivateLayer(int i, JLayeredPane layeredPane) {
 
@@ -37,6 +44,16 @@ public class RezsiTarsashaz extends JPanel {
 			}
 		}
 	}
+	
+	public void setRezsiTarsashaz(){
+		LekeroServices ls = new LekeroServices();
+		tarsashazak=ls.getTarsashazak();
+		box= new DefaultComboBoxModel<Tarsashaz>();
+		for(Tarsashaz th : tarsashazak){
+			box.addElement(th);
+		}
+		comboBox.setModel(box);
+	}
 
 	/**
 	 * Create the panel.
@@ -45,10 +62,9 @@ public class RezsiTarsashaz extends JPanel {
 		setLayout(null);
 		setBounds(0, 0, 584, 411);
 		
-		textField = new JTextField();
-		textField.setBounds(220, 38, 86, 20);
-		add(textField);
-		textField.setColumns(10);
+		comboBox = new JComboBox();
+		comboBox.setBounds(220, 38, 86, 20);
+		add(comboBox);
 		
 		JButton btnMehet = new JButton("Mehet");
 		btnMehet.addMouseListener(new MouseAdapter() {
@@ -56,7 +72,7 @@ public class RezsiTarsashaz extends JPanel {
 			public void mouseClicked(MouseEvent e) {
 				logger.info("Adatok feltöltése");
 				LekeroServices ls = new LekeroServices();
-				tarsashaz = ls.getTarsashazByID(Integer.parseInt(textField.getText()));
+				tarsashaz = ls.getTarsashazByID(((Tarsashaz)comboBox.getSelectedItem()).getId());
 				StatisztikaServices ss = new StatisztikaServices();
 				label.setText(ss.rezsiElott(tarsashaz.getTartozas())+" Ft");
 				label_1.setText(tarsashaz.getTartozas()+" Ft");

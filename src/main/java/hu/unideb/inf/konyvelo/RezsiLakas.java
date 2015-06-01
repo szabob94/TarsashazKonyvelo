@@ -3,12 +3,17 @@ package hu.unideb.inf.konyvelo;
 import hu.unideb.inf.konyvelo.Control.LekeroServices;
 import hu.unideb.inf.konyvelo.Control.StatisztikaServices;
 import hu.unideb.inf.konyvelo.Model.Lakas;
+import hu.unideb.inf.konyvelo.Model.Tarsashaz;
 
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
@@ -25,6 +30,9 @@ public class RezsiLakas extends JPanel {
 	JLabel label;
 	JLabel label_1;
 	JLabel label_2;
+	private List<Lakas> lakasok = new ArrayList<Lakas>();
+	private DefaultComboBoxModel<Lakas> box;
+	private JComboBox comboBox;
 
 	public static void ActivateLayer(int i, JLayeredPane layeredPane) {
 
@@ -36,6 +44,16 @@ public class RezsiLakas extends JPanel {
 			}
 		}
 	}
+	
+	public void setRezsiLakas(){
+		LekeroServices ls = new LekeroServices();
+		lakasok=ls.getLakasok();
+		box= new DefaultComboBoxModel<Lakas>();
+		for(Lakas lakas : lakasok){
+			box.addElement(lakas);
+		}
+		comboBox.setModel(box);
+	}
 
 	/**
 	 * Create the panel.
@@ -43,11 +61,10 @@ public class RezsiLakas extends JPanel {
 	public RezsiLakas(JLayeredPane layeredPane) {
 		setLayout(null);
 		setBounds(0, 0, 584, 411);
-
-		textField = new JTextField();
-		textField.setBounds(220, 38, 86, 20);
-		add(textField);
-		textField.setColumns(10);
+		
+		comboBox = new JComboBox();
+		comboBox.setBounds(220, 38, 86, 20);
+		add(comboBox);
 
 		JButton btnMehet = new JButton("Mehet");
 		btnMehet.addMouseListener(new MouseAdapter() {
@@ -55,7 +72,7 @@ public class RezsiLakas extends JPanel {
 			public void mouseClicked(MouseEvent e) {
 				logger.info("Adatok feltöltése");
 				LekeroServices ls = new LekeroServices();
-				lakas=ls.getLakasByID(Integer.parseInt(textField.getText()));
+				lakas=ls.getLakasByID(((Lakas)comboBox.getSelectedItem()).getId());
 				StatisztikaServices ss = new StatisztikaServices();
 				label.setText(ss.rezsiElott(lakas.getTartozas())+" Ft");
 				label_1.setText(lakas.getTartozas()+" Ft");
